@@ -1,6 +1,6 @@
 -- [[ SANSVIN OFFICIAL VIP ]] --
 -- Optimasi: HP Kentang
--- Status: No Key & No Ads
+-- Status: No Key & Auto-Load
 
 local VIP_LIST = {"OPWaressu", "Ardiles012"} 
 local playerName = game.Players.LocalPlayer.Name
@@ -18,13 +18,13 @@ if not isVip then
     return
 end
 
--- NOTIFIKASI PEMBUKA SANSVIN
+-- NOTIFIKASI SANSVIN
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "SANSVIN OFFICIAL",
-    Text = "Selamat datang, VIP Member!",
+    Text = "Menyiapkan Fitur VIP... Tunggu Sekejap",
     Duration = 5
 })
 
--- MEMANGGIL FITUR UTAMA (VERSI BERSIH & NO KEY)
--- Kita menggunakan fitur yang mendukung optimasi perangkat rendah
+-- MEMANGGIL FITUR UTAMA DENGAN DELAY AGAR TIDAK CRASH
+task.wait(1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ToraIsMe/ToraIsMe/main/0Tsunami"))()
