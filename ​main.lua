@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE PC/MOBILE OPTIMIZATION) ]] --
--- Update: Tambah zaki123gg82 | Welcome Message | Brand Replacer Optimized
+-- Update: Fixed Brand Replacer, Auto-Update Text, & Star Icon Cleaner
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -8,7 +8,7 @@ local StarterGui = game:GetService("StarterGui")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR MEMBER VIP (SUSUNAN ABJAD A-Z)
+-- ⚙️ DAFTAR MEMBER VIP
 -- ========================================================== --
 local VIP_LIST = { 
     ["8Catplayren"] = true, ["aditya12377799999"] = true, ["ahmadblabla22"] = true,
@@ -37,102 +37,77 @@ local VIP_LIST = {
 }
 
 -- ========================================================== --
--- 1. SISTEM KEAMANAN & WELCOME MESSAGE
+-- 1. SISTEM KEAMANAN
 -- ========================================================== --
 local function cekVip()
     local namaKecil = string.lower(Player.Name)
     for vNama, _ in pairs(VIP_LIST) do
-        if string.lower(vNama) == namaKecil then
-            return true
-        end
+        if string.lower(vNama) == namaKecil then return true end
     end
     return false
 end
 
 if not cekVip() then
-    Player:Kick("\n[SANSVIN]\nAkses Ditolak!\nNama: " .. Player.Name .. " belum terdaftar.")
+    Player:Kick("\n[SANSVIN]\nAkses Ditolak!")
     return
-else
-    -- Mengirim pesan ke ChatBox saat berhasil masuk
-    task.spawn(function()
-        task.wait(1)
-        StarterGui:SetCore("ChatMakeSystemMessage", {
-            Text = "[SANSVIN] Welcome, " .. Player.Name .. "! Script V1.3 Activated.",
-            Color = Color3.fromRGB(0, 255, 127),
-            Font = Enum.Font.SourceSansBold,
-            FontSize = Enum.FontSize.Size24
-        })
-    end)
 end
 
 -- ========================================================== --
--- 2. LOADING SCREEN SANSVIN (RAINBOW UI)
+-- 2. LOADING SCREEN (RAINBOW UI)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinUI"
-
 local mf = Instance.new("Frame", sg)
-mf.Size = UDim2.new(0, 300, 0, 100)
-mf.Position = UDim2.new(0.5, -150, 0.5, -50)
-mf.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-mf.BorderSizePixel = 0
-local corner = Instance.new("UICorner", mf)
-corner.CornerRadius = UDim.new(0, 12)
-local stroke = Instance.new("UIStroke", mf)
-stroke.Thickness = 2
-stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-local t = Instance.new("TextLabel", mf)
-t.Size = UDim2.new(1, 0, 1, 0)
-t.Text = "SANSVIN V1.3"
-t.TextColor3 = Color3.fromRGB(255, 255, 255)
-t.TextSize = 35
-t.Font = Enum.Font.FredokaOne
-t.BackgroundTransparency = 1
+mf.Size = UDim2.new(0, 300, 0, 100); mf.Position = UDim2.new(0.5, -150, 0.5, -50)
+mf.BackgroundColor3 = Color3.fromRGB(15, 15, 15); mf.BorderSizePixel = 0
+Instance.new("UICorner", mf).CornerRadius = UDim.new(0, 12)
+local stroke = Instance.new("UIStroke", mf); stroke.Thickness = 2
+local t = Instance.new("TextLabel", mf); t.Size = UDim2.new(1, 0, 1, 0)
+t.Text = "SANSVIN V1.3"; t.TextColor3 = Color3.fromRGB(255, 255, 255)
+t.TextSize = 35; t.Font = Enum.Font.FredokaOne; t.BackgroundTransparency = 1
 
 task.spawn(function()
     local h = 0
     while sg.Parent do
         local color = Color3.fromHSV(h, 0.7, 1)
-        t.TextColor3 = color
-        stroke.Color = color
-        h = (h + 0.002) % 1
-        task.wait()
+        t.TextColor3 = color; stroke.Color = color
+        h = (h + 0.002) % 1; task.wait()
     end
 end)
-
-task.wait(3.5)
-sg:Destroy()
+task.wait(3.5); sg:Destroy()
 
 -- ========================================================== --
--- 3. JALANKAN SKRIP UTAMA (LOADSTRING)
+-- 3. JALANKAN SKRIP UTAMA
 -- ========================================================== --
 pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
 -- ========================================================== --
--- 4. MESIN PENGGANTI BRAND (ULTRA LIGHTWEIGHT)
+-- 4. MESIN PENGGANTI BRAND & CUSTOMIZER
 -- ========================================================== --
 task.spawn(function()
-    local kataKunci = {"Osaka", "Galaxy", "v7.3", "v8.51"}
+    local kataKunci = {"Osaka", "Galaxy", "v7.3", "v7.5", "v8.51"}
     while task.wait(1) do 
         pcall(function()
             for _, v in ipairs(CoreGui:GetDescendants()) do
-                -- Ganti Nama Brand pada Teks
+                -- Ganti Nama Brand
                 if v:IsA("TextLabel") or v:IsA("TextButton") then
                     for _, kata in ipairs(kataKunci) do
                         if string.find(v.Text, kata) then
-                            v.Text = "SANSVIN V1.3"
+                            v.Text = string.gsub(v.Text, kata, "SANSVIN V1.3")
                             v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
                         end
                     end
+                    -- Ganti Tulisan Update
+                    if v.Text:find("New Update") then
+                        v.Text = "SANSVIN Update v1.3"
+                        v.TextColor3 = Color3.fromRGB(255, 255, 0)
+                    end
                 end
-                -- Sembunyikan Logo Brand Lama
-                if v:IsA("ImageLabel") and v.Visible then
-                    local size = v.AbsoluteSize
-                    if size.X > 30 and size.X < 100 and not v.Name:find("Icon") then
-                        v.ImageTransparency = 1
+                -- Hapus Ikon Bintang/Logo Lama
+                if v:IsA("ImageLabel") then
+                    if v.Name:find("Star") or v.Name:find("Icon") or (v.AbsoluteSize.X > 30 and v.AbsoluteSize.X < 100) then
                         v.Visible = false
                     end
                 end
