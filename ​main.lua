@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Update: Total Header Overwrite & Anti-Leak Branding
+-- Update: Instant Version Overwrite & UI Deep Clean
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -39,7 +39,7 @@ local VIP_LIST = {
 if not VIP_LIST[Player.Name] then Player:Kick("\n[SANSVIN]\nAkses Ditolak!") return end
 
 -- ========================================================== --
--- 2. LOADING UI MINIMALIS
+-- 2. LOADING UI MINIMALIS (Sesuai Gambar)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinLoader"
@@ -88,61 +88,48 @@ task.spawn(function()
 end)
 
 -- ========================================================== --
--- 3. TOTAL HEADER OVERWRITE (v7.5 -> SANSVIN UPDATE)
+-- 3. INSTANT CLEAN REPLACER (Fix New Update & Owner Text)
 -- ========================================================== --
-local function headerPurgeUI()
-    localkataKunciBranding = {"Osaka", "Galaxy"}
-    localkataKunciVersi = {"v7.5", "v8.75"}
+local function deepCleanUI()
+    -- Daftar kata-kata yang HARUS diganti
+    local replacements = {
+        ["new update 7.5"] = "SANSVIN Update v1.3",
+        ["update 7.5"] = "SANSVIN Update v1.3",
+        ["osaka"] = "SANSVIN OFFICIAL",
+        ["galaxy"] = "SANSVIN OFFICIAL",
+        ["fix farm"] = "SANSVIN OFFICIAL",
+        ["fix trial"] = "SANSVIN OFFICIAL",
+        ["fix fire ice"] = "SANSVIN OFFICIAL"
+    }
 
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
-                
-                -- 1. Deteksi area branding (misal OsakaTP)
-                for _, kata in ipairs(kataKunciBranding) do
-                    if string.find(txt, kata) then
-                        v.Text = "SANSVIN OFFICIAL"
+                for original, replacement in pairs(replacements) do
+                    if string.find(txt, original) then
+                        v.Text = replacement
                         v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
                     end
                 end
-                
-                -- 2. Deteksi area versi (v7.5) dan langsung GANTI TOTAL
-                for _, kata in ipairs(kataKunciVersi) do
-                    if string.find(txt, kata) then
-                        v.Text = "SANSVIN UPDATE" -- Ini yang kamu minta
-                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
-                    end
-                end
-
-                -- Overwrite detail update
-                if v.Text:find("Fix farm") or v.Text:find("New Update") then
-                    v.Text = "SANSVIN Update v1.3"
-                end
             end
-            
-            -- Sembunyikan Logo Pisang dan Notifikasi samping
-            if v:IsA("ImageLabel") then
-                if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
-                    v.Visible = false 
-                end
-            end
-            if (v:IsA("TextLabel") or v:IsA("TextButton")) and (v.Name:find("Notif") or v.Text:find("Notif")) then
-                v.Visible = false
+            -- Sembunyikan Logo Pemilik Asli
+            if v:IsA("ImageLabel") and (v.Name:find("Star") or v.Name:find("Icon")) then
+                v.ImageTransparency = 1 
             end
         end)
     end
 end
 
--- Eksekusi Script Utama
+-- Eksekusi Script
 pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
--- Loop pengecekan super cepat (0.1s) agar branding asli tidak sempat muncul
+-- Loop pengecekan super cepat (0.1s)
 task.spawn(function()
     while true do
-        headerPurgeUI()
+        deepCleanUI()
         task.wait(0.1)
     end
 end)
