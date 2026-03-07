@@ -21,7 +21,8 @@ local VIP_LIST = {
     ["dHKvTGQeVeA"]    = true,
     ["mirz_4443"]      = true,
     ["Rosemary_616"]   = true,
-    ["Reczz83"]        = true
+    ["Reczz83"]        = true,
+    ["imroon1"]        = true
 }
 
 local function cekVip()
