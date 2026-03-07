@@ -5,13 +5,23 @@
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
-local Player = Players.LocalPlayer
+local Player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
 
 -- ========================================================== --
--- ⚙️ VALIDASI VIP
+-- ⚙️ DAFTAR MEMBER VIP
 -- ========================================================== --
 local VIP_LIST = { 
-    ["8Catplayren"] = true, ["OPWaressu"] = true, ["zaki123gg82"] = true, ["Pemancinganhanda"] = true 
+    ["8Catplayren"]    = true,
+    ["OPWaressu"]      = true,
+    ["zaki123gg82"]    = true,
+    ["Pemancinganhanda"] = true,
+    ["wannz890"]       = true,
+    ["Rinalbau1522"]   = true,
+    ["boci1261"]       = true,
+    ["dHKvTGQeVeA"]    = true,
+    ["mirz_4443"]      = true,
+    ["Rosemary_616"]   = true,
+    ["Reczz83"]        = true
 }
 
 local function cekVip()
@@ -25,7 +35,7 @@ end
 if not cekVip() then Player:Kick("\n[SANSVIN]\nAkses Ditolak!") return end
 
 -- ========================================================== --
--- 2. MODERN COMPACT LOADING (SINKRON DENGAN SCRIPT)
+-- 2. MODERN COMPACT LOADING
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinMiniLoader"
@@ -59,7 +69,6 @@ barFill.Size = UDim2.new(0, 0, 1, 0)
 barFill.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Instance.new("UICorner", barFill)
 
--- Efek Pelangi Loading
 task.spawn(function()
     local h = 0
     while sg.Parent do
@@ -72,47 +81,35 @@ task.spawn(function()
     end
 end)
 
--- Jalankan Loading Baru Load Script
 task.spawn(function()
     local tween = TweenService:Create(barFill, TweenInfo.new(3), {Size = UDim2.new(1, 0, 1, 0)})
     tween:Play()
-    tween.Completed:Wait() -- Menunggu loading selesai 100%
+    tween.Completed:Wait()
+    sg:Destroy()
     
-    task.wait(0.5)
-    sg:Destroy() -- Hapus loading bar
-    
-    -- BARU LOAD SCRIPT ASLI DI SINI
     pcall(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
     end)
 end)
 
 -- ========================================================== --
--- 3. INSTANT BRAND REPLACER (TEMPEL PAKSA)
+-- 3. INSTANT BRAND REPLACER
 -- ========================================================== --
 local function fastReplace()
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
-                
-                -- Hapus area header & update log (Lingkaran Merah Kamu)
                 if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") or txt:find("07/03") then
                     v.Text = "SANSVIN UPDATE"
                 end
-                
-                -- Branding Developer Asli
                 if txt:find("osaka") or txt:find("galaxy") or txt:find("yt") then
                     v.Text = "SANSVIN OFFICIAL"
                 end
-                
-                -- Warna Pelangi untuk branding kita
                 if v.Text == "SANSVIN OFFICIAL" or v.Text == "SANSVIN UPDATE" then
                     v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
                 end
             end
-            
-            -- Matikan Gambar Pisang & Logo Luar
             if v:IsA("ImageLabel") then
                 if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
                     v.Visible = false
@@ -122,7 +119,6 @@ local function fastReplace()
     end
 end
 
--- Loop Tanpa Delay (Sangat Cepat)
 task.spawn(function()
     while true do
         fastReplace()
