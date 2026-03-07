@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Update: Complete Notification Cleaner & Brand Overwrite
+-- Update: Total UI Purge & Anti-Leak Branding
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ VALIDASI VIP (SUPERFAST CHECK)
+-- ⚙️ VALIDASI VIP
 -- ========================================================== --
 local VIP_LIST = { 
     ["8Catplayren"] = true, ["aditya12377799999"] = true, ["ahmadblabla22"] = true,
@@ -88,16 +88,17 @@ task.spawn(function()
 end)
 
 -- ========================================================== --
--- 3. INSTANT CLEAN REPLACER (Fix Trial & Notifications)
+-- 3. DEEP PURGE REPLACER (Hapus Teks Lingkaran Merah)
 -- ========================================================== --
-local function ultraCleanUI()
-    -- Daftar kata-kata yang HARUS diganti
+local function superCleanUI()
+    -- Kata kunci yang harus dihilangkan total atau diganti
     local replacements = {
+        ["escape tsunami"] = "",
+        ["brainrots"] = "",
+        ["v7.5"] = "",
+        ["v8.75"] = "",
         ["osaka"] = "SANSVIN OFFICIAL",
-        ["galaxy"] = "SANSVIN OFFICIAL",
-        ["fix farm"] = "SANSVIN OFFICIAL",
-        ["fix trial"] = "SANSVIN OFFICIAL",
-        ["fix fire ice"] = "SANSVIN OFFICIAL"
+        ["galaxy"] = "SANSVIN OFFICIAL"
     }
 
     for _, v in ipairs(CoreGui:GetDescendants()) do
@@ -105,28 +106,41 @@ local function ultraCleanUI()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
                 
-                -- Fitur Overwrite Detail Update (v1.3)
+                -- 1. Hapus teks yang kamu lingkari di header
+                if txt:find("escape tsunami") or txt:find("brainrots") then
+                    v.Text = "" 
+                end
+                
+                -- 2. Ganti angka versi asli yang ada di tombol/label
+                if txt:find("v7.5") or txt:find("v8.75") then
+                    v.Text = ""
+                end
+
+                -- 3. Overwrite detail update dan branding
                 if v.Text:find("Fix farm") or v.Text:find("New Update") then
                     v.Text = "SANSVIN Update v1.3"
                 end
                 
-                -- Ganti nama branding lain
                 for original, replacement in pairs(replacements) do
                     if string.find(txt, original) then
-                        v.Text = replacement
-                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
+                        if replacement == "" then
+                            v.Visible = false -- Sembunyikan jika tujuannya menghapus
+                        else
+                            v.Text = replacement
+                            v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
+                        end
                     end
                 end
             end
             
-            -- Fitur Baru: Sembunyikan Logo & Notifikasi Asli (Pisang/Star/Icon)
+            -- 4. Hilangkan Logo Pisang dan Ikon Setting yang berangka versi
             if v:IsA("ImageLabel") then
                 if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
                     v.Visible = false 
                 end
             end
             
-            -- Sembunyikan Label Notifikasi (Teks "Notification")
+            -- Sembunyikan notifikasi samping
             if (v:IsA("TextLabel") or v:IsA("TextButton")) and (v.Name:find("Notif") or v.Text:find("Notif")) then
                 v.Visible = false
             end
@@ -134,15 +148,15 @@ local function ultraCleanUI()
     end
 end
 
--- Eksekusi Script
+-- Eksekusi Script Utama
 pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
--- Loop pengecekan super cepat (0.1s)
+-- Loop pengecekan instan (0.1s)
 task.spawn(function()
     while true do
-        ultraCleanUI()
+        superCleanUI()
         task.wait(0.1)
     end
 end)
