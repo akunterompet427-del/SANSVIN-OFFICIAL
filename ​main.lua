@@ -1,10 +1,9 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Update: Rainbow Loading Screen, Fixed Speed Bug, Clean Branding
+-- Update: Compact Loading Bar, Smooth Tweens, Professional UI
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
-local CoreGui = game:GetService("CoreGui")
-local StarterGui = game:GetService("StarterGui")
+local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
@@ -36,9 +35,6 @@ local VIP_LIST = {
     ["ZAHAH005"] = true, ["zaki123gg82"] = true, ["Zero26xMoses"] = true
 }
 
--- ========================================================== --
--- 1. SISTEM KEAMANAN
--- ========================================================== --
 local function cekVip()
     local namaKecil = string.lower(Player.Name)
     for vNama, _ in pairs(VIP_LIST) do
@@ -50,64 +46,99 @@ end
 if not cekVip() then Player:Kick("\n[SANSVIN]\nAkses Ditolak!") return end
 
 -- ========================================================== --
--- 2. RAINBOW LOADING SCREEN
+-- 2. ENHANCED LOADING ANIMATION (MODERN STYLE)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
-sg.Name = "SansvinUI"
-sg.IgnoreGuiInset = true
-sg.DisplayOrder = 999999
+sg.Name = "SansvinLoader"
+sg.DisplayOrder = 999
 
-local mf = Instance.new("Frame", sg)
-mf.Size = UDim2.new(1, 0, 1, 0)
-mf.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+-- Main Container (Kecil di bawah tengah)
+local main = Instance.new("Frame", sg)
+main.Size = UDim2.new(0, 300, 0, 80)
+main.Position = UDim2.new(0.5, -150, 0.85, 0) -- Posisi bawah tengah
+main.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+main.BackgroundTransparency = 0.2
+main.BorderSizePixel = 0
+Instance.new("UICorner", main).CornerRadius = UDim.new(0, 10)
+local stroke = Instance.new("UIStroke", main)
+stroke.Thickness = 2
+stroke.Color = Color3.fromRGB(255, 255, 255)
 
-local t = Instance.new("TextLabel", mf)
-t.Size = UDim2.new(1, 0, 1, 0)
-t.Text = "SANSVIN V1.3"
-t.TextColor3 = Color3.fromRGB(255, 255, 255)
-t.TextSize = 50
-t.Font = Enum.Font.FredokaOne
-t.BackgroundTransparency = 1
-local stroke = Instance.new("UIStroke", t)
-stroke.Thickness = 3
+-- Text Label
+local title = Instance.new("TextLabel", main)
+title.Size = UDim2.new(1, 0, 0.5, 0)
+title.BackgroundTransparency = 1
+title.Text = "SANSVIN V1.3"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.FredokaOne
+title.TextSize = 22
+title.Position = UDim2.new(0, 0, 0.1, 0)
 
+-- Loading Bar Background
+local barBg = Instance.new("Frame", main)
+barBg.Size = UDim2.new(0.8, 0, 0.1, 0)
+barBg.Position = UDim2.new(0.1, 0, 0.7, 0)
+barBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Instance.new("UICorner", barBg)
+
+-- Loading Bar Fill
+local barFill = Instance.new("Frame", barBg)
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Instance.new("UICorner", barFill)
+
+-- Animation Logic
 task.spawn(function()
+    -- Rainbow Effect
     local h = 0
-    while sg.Parent do
-        local color = Color3.fromHSV(h, 0.7, 1)
-        t.TextColor3 = color; stroke.Color = color
-        h = (h + 0.005) % 1; task.wait()
-    end
+    task.spawn(function()
+        while sg.Parent do
+            local color = Color3.fromHSV(h, 0.7, 1)
+            stroke.Color = color
+            title.TextColor3 = color
+            barFill.BackgroundColor3 = color
+            h = (h + 0.005) % 1
+            task.wait()
+        end
+    end)
+
+    -- Bar Animation
+    local tween = TweenService:Create(barFill, TweenInfo.new(3.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 1, 0)})
+    tween:Play()
+    
+    task.wait(4)
+    
+    -- Fade Out
+    local fade = TweenService:Create(main, TweenInfo.new(0.5), {BackgroundTransparency = 1})
+    TweenService:Create(title, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+    TweenService:Create(barBg, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+    TweenService:Create(barFill, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+    TweenService:Create(stroke, TweenInfo.new(0.5), {Transparency = 1}):Play()
+    fade:Play()
+    fade.Completed:Wait()
+    sg:Destroy()
 end)
-task.wait(4); sg:Destroy()
 
 -- ========================================================== --
--- 3. LOAD UTAMA & BRAND REPLACER (SMART VERSION)
+-- 3. LOAD UTAMA & BRAND REPLACER
 -- ========================================================== --
 pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
+-- Background Brand Fixer (Silent)
 task.spawn(function()
     local kataKunci = {"Osaka", "Galaxy", "v7.3", "v7.5", "v8.51", "YT"}
     while task.wait(1) do 
         pcall(function()
-            for _, v in ipairs(CoreGui:GetDescendants()) do
+            for _, v in ipairs(game:GetService("CoreGui"):GetDescendants()) do
                 if v:IsA("TextLabel") or v:IsA("TextButton") then
-                    local match = false
                     for _, kata in ipairs(kataKunci) do
-                        if string.find(v.Text, kata) then match = true break end
+                        if string.find(v.Text, kata) then
+                            v.Text = "SANSVIN OFFICIAL"
+                            v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
+                        end
                     end
-                    if match then
-                        v.Text = "SANSVIN OFFICIAL"
-                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
-                    end
-                    if v.Text:find("Fix farm") or v.Text:find("New Update") then
-                        v.Text = "SANSVIN Update v1.3"
-                    end
-                end
-                if v:IsA("ImageLabel") then
-                    if v.Name:find("Star") or v.Name:find("Icon") then v.Visible = false end
                 end
             end
         end)
