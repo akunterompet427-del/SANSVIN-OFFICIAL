@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE PC/MOBILE OPTIMIZATION) ]] --
--- Update: Fixed Brand Replacer, Auto-Update Text, & Star Icon Cleaner
+-- Update: Remove YT Header, Clean Logs, & Custom Brand Replacer
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -37,7 +37,7 @@ local VIP_LIST = {
 }
 
 -- ========================================================== --
--- 1. SISTEM KEAMANAN
+-- 1. SISTEM KEAMANAN & WELCOME
 -- ========================================================== --
 local function cekVip()
     local namaKecil = string.lower(Player.Name)
@@ -50,10 +50,20 @@ end
 if not cekVip() then
     Player:Kick("\n[SANSVIN]\nAkses Ditolak!")
     return
+else
+    task.spawn(function()
+        task.wait(1)
+        StarterGui:SetCore("ChatMakeSystemMessage", {
+            Text = "[SANSVIN] Welcome, " .. Player.Name .. "! Official Script Activated.",
+            Color = Color3.fromRGB(0, 255, 127),
+            Font = Enum.Font.SourceSansBold,
+            FontSize = Enum.FontSize.Size24
+        })
+    end)
 end
 
 -- ========================================================== --
--- 2. LOADING SCREEN (RAINBOW UI)
+-- 2. LOADING SCREEN SANSVIN
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinUI"
@@ -84,30 +94,42 @@ pcall(function()
 end)
 
 -- ========================================================== --
--- 4. MESIN PENGGANTI BRAND & CUSTOMIZER
+-- 4. MESIN PENGGANTI BRAND (ULTRA CLEAN VERSION)
 -- ========================================================== --
 task.spawn(function()
     local kataKunci = {"Osaka", "Galaxy", "v7.3", "v7.5", "v8.51"}
-    while task.wait(1) do 
+    while task.wait(0.5) do 
         pcall(function()
             for _, v in ipairs(CoreGui:GetDescendants()) do
-                -- Ganti Nama Brand
                 if v:IsA("TextLabel") or v:IsA("TextButton") then
+                    -- Ganti Nama Brand & Hapus Tulisan YT
+                    if v.Text:find("YT") or v.Text:find("Yt") then
+                        v.Text = "SANSVIN OFFICIAL"
+                    end
+                    
                     for _, kata in ipairs(kataKunci) do
                         if string.find(v.Text, kata) then
-                            v.Text = string.gsub(v.Text, kata, "SANSVIN V1.3")
+                            v.Text = "SANSVIN V1.3"
                             v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
                         end
                     end
-                    -- Ganti Tulisan Update
+                    
+                    -- Ganti Log Fix/Trial menjadi SANSVIN OFFICIAL
+                    if v.Text:find("Fix farm") or v.Text:find("Fix Trial") then
+                        v.Text = "SANSVIN OFFICIAL"
+                        v.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    end
+                    
+                    -- Ganti Label Update
                     if v.Text:find("New Update") then
                         v.Text = "SANSVIN Update v1.3"
                         v.TextColor3 = Color3.fromRGB(255, 255, 0)
                     end
                 end
-                -- Hapus Ikon Bintang/Logo Lama
+                
+                -- Sembunyikan Bintang & Ikon Lama
                 if v:IsA("ImageLabel") then
-                    if v.Name:find("Star") or v.Name:find("Icon") or (v.AbsoluteSize.X > 30 and v.AbsoluteSize.X < 100) then
+                    if v.Name:find("Star") or v.Name:find("Icon") or (v.AbsoluteSize.X > 10 and v.AbsoluteSize.X < 100) then
                         v.Visible = false
                     end
                 end
