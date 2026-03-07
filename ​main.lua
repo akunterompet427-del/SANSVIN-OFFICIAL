@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Update: Super Clean Branding & Minimalist Loading
+-- Update: Complete Notification Cleaner & Brand Overwrite
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ SISTEM VALIDASI VIP
+-- ⚙️ VALIDASI VIP (SUPERFAST CHECK)
 -- ========================================================== --
 local VIP_LIST = { 
     ["8Catplayren"] = true, ["aditya12377799999"] = true, ["ahmadblabla22"] = true,
@@ -39,14 +39,14 @@ local VIP_LIST = {
 if not VIP_LIST[Player.Name] then Player:Kick("\n[SANSVIN]\nAkses Ditolak!") return end
 
 -- ========================================================== --
--- 2. MINI LOADING UI (Sesuai Permintaan)
+-- 2. LOADING UI MINIMALIS
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinLoader"
 
 local main = Instance.new("Frame", sg)
-main.Size = UDim2.new(0, 250, 0, 55)
-main.Position = UDim2.new(0.5, -125, 0.9, -60)
+main.Size = UDim2.new(0, 240, 0, 50)
+main.Position = UDim2.new(0.5, -120, 0.9, -55)
 main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 main.BackgroundTransparency = 0.2
 Instance.new("UICorner", main).CornerRadius = UDim.new(0, 8)
@@ -59,10 +59,10 @@ title.BackgroundTransparency = 1
 title.Text = "SANSVIN OFFICIAL"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Font = Enum.Font.FredokaOne
-title.TextSize = 16
+title.TextSize = 14
 
 local barBg = Instance.new("Frame", main)
-barBg.Size = UDim2.new(0.8, 0, 0.1, 0)
+barBg.Size = UDim2.new(0.8, 0, 0.08, 0)
 barBg.Position = UDim2.new(0.1, 0, 0.75, 0)
 barBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 Instance.new("UICorner", barBg)
@@ -88,39 +88,61 @@ task.spawn(function()
 end)
 
 -- ========================================================== --
--- 3. INSTANT CLEAN REPLACER (Fix Trial -> SANSVIN)
+-- 3. INSTANT CLEAN REPLACER (Fix Trial & Notifications)
 -- ========================================================== --
-local function cleanUI()
-    local targetTexts = {"Osaka", "Galaxy", "v7.3", "v7.5", "Fix farm", "Fix Trial", "fire ice"}
+local function ultraCleanUI()
+    -- Daftar kata-kata yang HARUS diganti
+    local replacements = {
+        ["osaka"] = "SANSVIN OFFICIAL",
+        ["galaxy"] = "SANSVIN OFFICIAL",
+        ["fix farm"] = "SANSVIN OFFICIAL",
+        ["fix trial"] = "SANSVIN OFFICIAL",
+        ["fix fire ice"] = "SANSVIN OFFICIAL"
+    }
+
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
-                for _, word in ipairs(targetTexts) do
-                    if string.find(v.Text:lower(), word:lower()) then
-                        v.Text = "SANSVIN OFFICIAL"
-                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow effect
+                local txt = v.Text:lower()
+                
+                -- Fitur Overwrite Detail Update (v1.3)
+                if v.Text:find("Fix farm") or v.Text:find("New Update") then
+                    v.Text = "SANSVIN Update v1.3"
+                end
+                
+                -- Ganti nama branding lain
+                for original, replacement in pairs(replacements) do
+                    if string.find(txt, original) then
+                        v.Text = replacement
+                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
                     end
                 end
             end
-            -- Hilangkan logo/icon asli pemilik
-            if v:IsA("ImageLabel") and (v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid")) then
-                if not v:IsDescendantOf(game.Players.LocalPlayer.PlayerGui) then
-                    v.ImageTransparency = 1 
+            
+            -- Fitur Baru: Sembunyikan Logo & Notifikasi Asli (Pisang/Star/Icon)
+            if v:IsA("ImageLabel") then
+                if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
+                    v.Visible = false 
                 end
+            end
+            
+            -- Sembunyikan Label Notifikasi (Teks "Notification")
+            if (v:IsA("TextLabel") or v:IsA("TextButton")) and (v.Name:find("Notif") or v.Text:find("Notif")) then
+                v.Visible = false
             end
         end)
     end
 end
 
--- Eksekusi Script Utama
+-- Eksekusi Script
 pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
--- Loop pengecekan super cepat (0.1s) agar user tidak sempat melihat teks asli
+-- Loop pengecekan super cepat (0.1s)
 task.spawn(function()
     while true do
-        cleanUI()
+        ultraCleanUI()
         task.wait(0.1)
     end
 end)
