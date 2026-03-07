@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Update: Total UI Purge & Anti-Leak Branding
+-- Update: Total Header Overwrite & Anti-Leak Branding
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -88,59 +88,45 @@ task.spawn(function()
 end)
 
 -- ========================================================== --
--- 3. DEEP PURGE REPLACER (Hapus Teks Lingkaran Merah)
+-- 3. TOTAL HEADER OVERWRITE (v7.5 -> SANSVIN UPDATE)
 -- ========================================================== --
-local function superCleanUI()
-    -- Kata kunci yang harus dihilangkan total atau diganti
-    local replacements = {
-        ["escape tsunami"] = "",
-        ["brainrots"] = "",
-        ["v7.5"] = "",
-        ["v8.75"] = "",
-        ["osaka"] = "SANSVIN OFFICIAL",
-        ["galaxy"] = "SANSVIN OFFICIAL"
-    }
+local function headerPurgeUI()
+    localkataKunciBranding = {"Osaka", "Galaxy"}
+    localkataKunciVersi = {"v7.5", "v8.75"}
 
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
                 
-                -- 1. Hapus teks yang kamu lingkari di header
-                if txt:find("escape tsunami") or txt:find("brainrots") then
-                    v.Text = "" 
+                -- 1. Deteksi area branding (misal OsakaTP)
+                for _, kata in ipairs(kataKunciBranding) do
+                    if string.find(txt, kata) then
+                        v.Text = "SANSVIN OFFICIAL"
+                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
+                    end
                 end
                 
-                -- 2. Ganti angka versi asli yang ada di tombol/label
-                if txt:find("v7.5") or txt:find("v8.75") then
-                    v.Text = ""
+                -- 2. Deteksi area versi (v7.5) dan langsung GANTI TOTAL
+                for _, kata in ipairs(kataKunciVersi) do
+                    if string.find(txt, kata) then
+                        v.Text = "SANSVIN UPDATE" -- Ini yang kamu minta
+                        v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1) -- Rainbow Sync
+                    end
                 end
 
-                -- 3. Overwrite detail update dan branding
+                -- Overwrite detail update
                 if v.Text:find("Fix farm") or v.Text:find("New Update") then
                     v.Text = "SANSVIN Update v1.3"
                 end
-                
-                for original, replacement in pairs(replacements) do
-                    if string.find(txt, original) then
-                        if replacement == "" then
-                            v.Visible = false -- Sembunyikan jika tujuannya menghapus
-                        else
-                            v.Text = replacement
-                            v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
-                        end
-                    end
-                end
             end
             
-            -- 4. Hilangkan Logo Pisang dan Ikon Setting yang berangka versi
+            -- Sembunyikan Logo Pisang dan Notifikasi samping
             if v:IsA("ImageLabel") then
                 if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
                     v.Visible = false 
                 end
             end
-            
-            -- Sembunyikan notifikasi samping
             if (v:IsA("TextLabel") or v:IsA("TextButton")) and (v.Name:find("Notif") or v.Text:find("Notif")) then
                 v.Visible = false
             end
@@ -153,10 +139,10 @@ pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
 end)
 
--- Loop pengecekan instan (0.1s)
+-- Loop pengecekan super cepat (0.1s) agar branding asli tidak sempat muncul
 task.spawn(function()
     while true do
-        superCleanUI()
+        headerPurgeUI()
         task.wait(0.1)
     end
 end)
