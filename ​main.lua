@@ -23,7 +23,14 @@ local VIP_LIST = {
     ["Rosemary_616"]   = true,
     ["Reczz83"]        = true,
     ["imroon1"]        = true,
-    ["pnzygod"]        = true -- Added new member
+    ["pnzygod"]        = true,
+    ["Flick_v3n0m76"]  = true,
+    ["ggpr320"]        = true,
+    ["rafa2sf"]        = true,
+    ["Dzibaan_12"]     = true,
+    ["lightlord054"]   = true,
+    ["Ohnyvell_4"]     = true,
+    ["bulllll45"]      = true
 }
 
 local function cekVip()
