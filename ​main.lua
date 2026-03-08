@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
 
 -- ========================================================== --
--- ⚙️ DAFTAR MEMBER VIP
+-- ⚙️ DAFTAR MEMBER VIP (Update: Added Hafri789)
 -- ========================================================== --
 local VIP_LIST = { 
     ["8Catplayren"]    = true,
@@ -30,7 +30,8 @@ local VIP_LIST = {
     ["Dzibaan_12"]     = true,
     ["lightlord054"]   = true,
     ["Ohnyvell_4"]     = true,
-    ["bulllll45"]      = true
+    ["bulllll45"]      = true,
+    ["Hafri789"]       = true -- Member Baru
 }
 
 local function cekVip()
