@@ -46,7 +46,8 @@ local VIP_LIST = {
     ["Akunke2ku612"]    = true,
     ["NAGA_ROR"]        = true,
     ["Godronglibinin"]  = true,
-    ["Nefz152"]         = true -- Added new member
+    ["Nefz152"]         = true,
+    ["itsme4you45"]     = true -- New member added
 }
 
 local function cekVip()
