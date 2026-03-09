@@ -1,6 +1,7 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
 -- Perbaikan: Sinkronisasi Loading & Instant Overwrite
 -- Author: SANSVIN Team (2026)
+-- Update: Added rorwww938 to VIP List
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -8,7 +9,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
 
 -- ========================================================== --
--- ⚙️ DAFTAR MEMBER VIP (Updated: Added Hafri789, Farel_lagee, rafa2sf_)
+-- ⚙️ DAFTAR MEMBER VIP (Updated: Added rorwww938)
 -- ========================================================== --
 local VIP_LIST = { 
     ["8Catplayren"]    = true,
@@ -33,7 +34,8 @@ local VIP_LIST = {
     ["bulllll45"]      = true,
     ["Hafri789"]       = true,
     ["Farel_lagee"]    = true,
-    ["rafa2sf_"]       = true
+    ["rafa2sf_"]       = true,
+    ["rorwww938"]      = true -- Added new member
 }
 
 local function cekVip()
