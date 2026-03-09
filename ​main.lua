@@ -1,7 +1,7 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
 -- Perbaikan: Sinkronisasi Loading & Instant Overwrite
 -- Author: SANSVIN Team (2026)
--- Update: Added requested users to VIP List
+-- Update: Removed itsme4you45 from VIP List
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -46,8 +46,7 @@ local VIP_LIST = {
     ["Akunke2ku612"]    = true,
     ["NAGA_ROR"]        = true,
     ["Godronglibinin"]  = true,
-    ["Nefz152"]         = true,
-    ["itsme4you45"]     = true -- New member added
+    ["Nefz152"]         = true
 }
 
 local function cekVip()
