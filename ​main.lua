@@ -1,7 +1,7 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
 -- Perbaikan: Sinkronisasi Loading & Instant Overwrite
 -- Author: SANSVIN Team (2026)
--- Update: Added UPIN124589, ArsyaMH12, and verified Ohmyvell_4 in VIP List
+-- Update: Added requested users to VIP List
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -37,7 +37,14 @@ local VIP_LIST = {
     ["rafa2sf_"]       = true,
     ["rorwww938"]      = true,
     ["UPIN124589"]     = true,
-    ["ArsyaMH12"]      = true
+    ["ArsyaMH12"]      = true,
+    ["escape_stunami1"] = true,
+    ["rizky_ridho2013"] = true,
+    ["damar474739"]     = true,
+    ["berondon47"]      = true,
+    ["vhyzu1"]          = true,
+    ["Akunke2ku612"]    = true,
+    ["NAGA_ROR"]        = true
 }
 
 local function cekVip()
