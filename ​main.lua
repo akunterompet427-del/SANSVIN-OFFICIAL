@@ -1,7 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (ULTIMATE EDITION) ]] --
--- Perbaikan: Sinkronisasi Loading & Instant Overwrite
+-- Perbaikan: Sinkronisasi Loading & Multi-Game Support
 -- Author: SANSVIN Team (2026)
--- Update: Added only4christy and Skryfie3e to VIP List
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -12,43 +11,7 @@ local Player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPla
 -- ⚙️ DAFTAR MEMBER VIP
 -- ========================================================== --
 local VIP_LIST = { 
-    ["8Catplayren"]    = true,
-    ["OPWaressu"]      = true,
-    ["zaki123gg82"]    = true,
-    ["Pemancinganhanda"] = true,
-    ["wannz890"]       = true,
-    ["Rinalbau1522"]   = true,
-    ["boci1261"]       = true,
-    ["dHKvTGQeVeA"]    = true,
-    ["mirz_4443"]      = true,
-    ["Rosemary_616"]   = true,
-    ["Reczz83"]        = true,
-    ["imroon1"]        = true,
-    ["pnzygod"]        = true,
-    ["Flick_v3n0m76"]  = true,
-    ["ggpr320"]        = true,
-    ["rafa2sf"]        = true,
-    ["Dzibaan_12"]     = true,
-    ["lightlord054"]   = true,
-    ["Ohnyvell_4"]     = true,
-    ["bulllll45"]      = true,
-    ["Hafri789"]       = true,
-    ["Farel_lagee"]    = true,
-    ["rafa2sf_"]       = true,
-    ["rorwww938"]      = true,
-    ["UPIN124589"]     = true,
-    ["ArsyaMH12"]      = true,
-    ["escape_stunami1"] = true,
-    ["rizky_ridho2013"] = true,
-    ["damar474739"]     = true,
-    ["berondon47"]      = true,
-    ["vhyzu1"]          = true,
-    ["Akunke2ku612"]    = true,
-    ["NAGA_ROR"]        = true,
-    ["Godronglibinin"]  = true,
-    ["Nefz152"]         = true,
-    ["only4christy"]    = true,
-    ["Skryfie3e"]       = true -- Member baru ditambahkan
+    ["OPWaressu"] = true
 }
 
 local function cekVip()
@@ -59,10 +22,18 @@ local function cekVip()
     return false
 end
 
-if not cekVip() then Player:Kick("\n[SANSVIN]\nAkses Ditolak!") return end
+if not cekVip() then Player:Kick("\n[SANSVIN]\nAkses Ditolak! Anda bukan member VIP.") return end
 
 -- ========================================================== --
--- 2. MODERN COMPACT LOADING
+-- ⚙️ DATABASE GAME SANSVIN (Otomatis Deteksi Game)
+-- ========================================================== --
+local SANSVIN_DATABASE = {
+    -- Masukkan GameID dan Link Skrip di sini
+    [15502339080] = "https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5",
+}
+
+-- ========================================================== --
+-- 2. MODERN COMPACT LOADING (RAINBOW)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinMiniLoader"
@@ -80,7 +51,7 @@ stroke.Thickness = 1.5
 local title = Instance.new("TextLabel", main)
 title.Size = UDim2.new(1, 0, 0.6, 0)
 title.BackgroundTransparency = 1
-title.Text = "SANSVIN V1.3"
+title.Text = "SANSVIN V1.3 OFFICIAL"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Font = Enum.Font.FredokaOne
 title.TextSize = 18
@@ -114,32 +85,28 @@ task.spawn(function()
     tween.Completed:Wait()
     sg:Destroy()
     
-    pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
-    end)
+    local ScriptURL = SANSVIN_DATABASE[game.GameId] or SANSVIN_DATABASE[game.PlaceId]
+    
+    if ScriptURL then
+        loadstring(game:HttpGet(ScriptURL))()
+    else
+        warn("SANSVIN: Game ini belum ada di database.")
+    end
 end)
 
 -- ========================================================== --
--- 3. INSTANT BRAND REPLACER
+-- 3. INSTANT BRAND REPLACER (Auto-SANSVIN)
 -- ========================================================== --
 local function fastReplace()
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
-                if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") or txt:find("07/03") then
+                if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") then
                     v.Text = "SANSVIN UPDATE"
                 end
-                if txt:find("osaka") or txt:find("galaxy") or txt:find("yt") then
+                if txt:find("osaka") or txt:find("galaxy") or txt:find("speed hub") then
                     v.Text = "SANSVIN OFFICIAL"
-                end
-                if v.Text == "SANSVIN OFFICIAL" or v.Text == "SANSVIN UPDATE" then
-                    v.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 0.8, 1)
-                end
-            end
-            if v:IsA("ImageLabel") then
-                if v.Name:find("Star") or v.Name:find("Icon") or v.Image:find("rbxassetid") then
-                    v.Visible = false
                 end
             end
         end)
@@ -149,6 +116,6 @@ end
 task.spawn(function()
     while true do
         fastReplace()
-        task.wait() 
+        task.wait(1) 
     end
 end)
