@@ -51,11 +51,11 @@ local VIP_LIST = {
     ["mainrobloxajayam"] = true,
     ["nadim141206"] = true,
     ["wawj615435j"] = true,
-    ["alfin141006"] = true
+    ["alfin141006"] = true,
+    ["gr33n_frost934"] = true
 }
 
 local function cekAkses()
-    -- Mengubah nama player menjadi huruf kecil semua agar tidak error saat pengecekan
     local playerName = string.lower(Player.Name)
     if VIP_LIST[playerName] then 
         return true 
@@ -87,7 +87,7 @@ local title = Instance.new("TextLabel", main)
 title.Size = UDim2.new(1, 0, 0.7, 0)
 title.BackgroundTransparency = 1
 title.Text = "SANSVIN V1.3 - MEMBER"
-title.TextColor3 = Color3.fromRGB(255, 230, 0) -- Kuning
+title.TextColor3 = Color3.fromRGB(255, 230, 0)
 title.Font = Enum.Font.FredokaOne
 title.TextSize = 20
 
@@ -102,7 +102,6 @@ barFill.Size = UDim2.new(0, 0, 1, 0)
 barFill.BackgroundColor3 = Color3.fromRGB(255, 230, 0)
 Instance.new("UICorner", barFill)
 
--- Animasi Loading
 task.spawn(function()
     local tween = TweenService:Create(barFill, TweenInfo.new(2.5, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 1, 0)})
     tween:Play()
@@ -111,26 +110,23 @@ task.spawn(function()
     task.wait(0.1)
     sg:Destroy()
     
-    -- LOAD SCRIPT UTAMA
     pcall(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
     end)
 end)
 
 -- ========================================================== --
--- 3. BRAND REPLACER (LEBIH CEPAT & SMOOTH)
+-- 3. BRAND REPLACER
 -- ========================================================== --
 local function fastReplace()
     for _, v in ipairs(CoreGui:GetDescendants()) do
         pcall(function()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
-                
                 if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") then
                     v.Text = "SANSVIN UPDATE"
                     v.TextColor3 = Color3.fromRGB(255, 230, 0)
                 end
-                
                 if txt:find("osaka") or txt:find("galaxy") or txt:find("yt") then
                     v.Text = "SANSVIN OFFICIAL"
                     v.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -141,7 +137,7 @@ local function fastReplace()
 end
 
 task.spawn(function()
-    while task.wait(0.5) do -- Jeda sedikit agar tidak lag
+    while task.wait(0.5) do
         fastReplace()
     end
 end)
