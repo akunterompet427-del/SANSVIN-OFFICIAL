@@ -49,7 +49,8 @@ local VIP_LIST = {
     ["only4christy"] = true,
     ["skryfie3e"] = true,
     ["mainrobloxajayam"] = true,
-    ["nadim141206"] = true
+    ["nadim141206"] = true,
+    ["wawj615435j"] = true
 }
 
 local function cekAkses()
