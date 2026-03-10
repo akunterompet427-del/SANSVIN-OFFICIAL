@@ -8,14 +8,50 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ SISTEM LOCK VIP (Hanya Nama Ini Yang Bisa Akses)
+-- ⚙️ SISTEM LOCK VIP (37 Member Terdaftar)
 -- ========================================================== --
 local VIP_LIST = { 
-    ["OPWaressu"] = true -- Nama VIP utama kamu
+    ["8Catplayren"] = true,
+    ["OPWaressu"] = true,
+    ["zaki123gg82"] = true,
+    ["Pemancinganhanda"] = true,
+    ["wannz890"] = true,
+    ["Rinalbau1522"] = true,
+    ["boci1261"] = true,
+    ["dHKvTGQeVeA"] = true,
+    ["mirz_4443"] = true,
+    ["Rosemary_616"] = true,
+    ["Reczz83"] = true,
+    ["imroon1"] = true,
+    ["pnzygod"] = true,
+    ["Flick_v3n0m76"] = true,
+    ["ggpr320"] = true,
+    ["rafa2sf"] = true,
+    ["Dzibaan_12"] = true,
+    ["lightlord054"] = true,
+    ["Ohnyvell_4"] = true,
+    ["bulllll45"] = true,
+    ["Hafri789"] = true,
+    ["Farel_lagee"] = true,
+    ["rafa2sf_"] = true,
+    ["rorwww938"] = true,
+    ["UPIN124589"] = true,
+    ["ArsyaMH12"] = true,
+    ["escape_stunami1"] = true,
+    ["rizky_ridho2013"] = true,
+    ["damar474739"] = true,
+    ["berondon47"] = true,
+    ["vhyzu1"] = true,
+    ["Akunke2ku612"] = true,
+    ["NAGA_ROR"] = true,
+    ["Godronglibinin"] = true,
+    ["Nefz152"] = true,
+    ["only4christy"] = true,
+    ["Skryfie3e"] = true
 }
 
 local function cekVip()
-    -- Cek nama player (tidak peduli huruf besar/kecil)
+    -- Cek nama player (Case Sensitive sesuai input)
     if VIP_LIST[Player.Name] then 
         return true 
     end
@@ -29,7 +65,7 @@ if not cekVip() then
 end
 
 -- ========================================================== --
--- 2. LOADING UI (PERSIS GAMBAR 1000054108.jpg)
+-- 2. LOADING UI (KUNING)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
 sg.Name = "SansvinVipLoader"
@@ -39,13 +75,13 @@ local main = Instance.new("Frame", sg)
 main.Size = UDim2.new(0, 320, 0, 70)
 main.Position = UDim2.new(0.5, -160, 0.8, -35)
 main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-main.BackgroundTransparency = 0.2 -- Efek transparan seperti di gambar
+main.BackgroundTransparency = 0.2
 Instance.new("UICorner", main).CornerRadius = UDim.new(0, 12)
 
 local title = Instance.new("TextLabel", main)
 title.Size = UDim2.new(1, 0, 0.7, 0)
 title.BackgroundTransparency = 1
-title.Text = "SANSVIN V1.3" -- Branding SANSVIN
+title.Text = "SANSVIN V1.3"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Font = Enum.Font.FredokaOne
 title.TextSize = 22
@@ -58,26 +94,26 @@ Instance.new("UICorner", barBg)
 
 local barFill = Instance.new("Frame", barBg)
 barFill.Size = UDim2.new(0, 0, 1, 0)
-barFill.BackgroundColor3 = Color3.fromRGB(255, 230, 0) -- Warna KUNING sesuai gambar
+barFill.BackgroundColor3 = Color3.fromRGB(255, 230, 0) -- KUNING
 Instance.new("UICorner", barFill)
 
 -- Jalankan Animasi Loading Sebelum Load Script Asli
 task.spawn(function()
     local tween = TweenService:Create(barFill, TweenInfo.new(3, Enum.EasingStyle.Linear), {Size = UDim2.new(1, 0, 1, 0)})
     tween:Play()
-    tween.Completed:Wait() -- Tunggu loading bar kuning penuh
+    tween.Completed:Wait() 
     
     task.wait(0.2)
     sg:Destroy()
     
-    -- LOAD SCRIPT SETELAH LOADING BERES
+    -- LOAD SCRIPT OSAKA
     pcall(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
     end)
 end)
 
 -- ========================================================== --
--- 3. INSTANT BRAND REPLACER (ANTI BOCOR)
+-- 3. INSTANT BRAND REPLACER (PENGGANTI NAMA)
 -- ========================================================== --
 local function fastReplace()
     for _, v in ipairs(CoreGui:GetDescendants()) do
@@ -85,19 +121,16 @@ local function fastReplace()
             if v:IsA("TextLabel") or v:IsA("TextButton") then
                 local txt = v.Text:lower()
                 
-                -- Target area lingkaran merah & update log
                 if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") or txt:find("07/03") then
                     v.Text = "SANSVIN UPDATE"
-                    v.TextColor3 = Color3.fromRGB(255, 230, 0) -- Teks warna kuning biar matching
+                    v.TextColor3 = Color3.fromRGB(255, 230, 0)
                 end
                 
-                -- Ganti nama Osaka/Galaxy
                 if txt:find("osaka") or txt:find("galaxy") or txt:find("yt") then
                     v.Text = "SANSVIN OFFICIAL"
                 end
             end
             
-            -- Hapus gambar pisang & ikon setting
             if v:IsA("ImageLabel") and (v.Name:find("Icon") or v.Image:find("rbxassetid")) then
                 v.Visible = false
             end
@@ -105,7 +138,6 @@ local function fastReplace()
     end
 end
 
--- Loop Tanpa Delay (Instan Tempel)
 task.spawn(function()
     while true do
         fastReplace()
