@@ -58,7 +58,8 @@ local VIP_LIST = {
     ["erinlowery53680"] = true,
     ["a151215511515"] = true,
     ["gengdudul"] = true,
-    ["zero26xmoses"] = true
+    ["zero26xmoses"] = true,
+    ["singgelera"] = true -- Member Baru Ditambahkan
 }
 
 local function cekAkses()
