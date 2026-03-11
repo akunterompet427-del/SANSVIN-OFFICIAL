@@ -57,7 +57,8 @@ local VIP_LIST = {
     ["vinzzzzz875"] = true,
     ["erinlowery53680"] = true,
     ["a151215511515"] = true,
-    ["gengdudul"] = true
+    ["gengdudul"] = true,
+    ["zero26xmoses"] = true
 }
 
 local function cekAkses()
