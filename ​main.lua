@@ -8,67 +8,63 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ SISTEM AKSES MEMBER (Dibuat Lebih Flexible)
+-- ⚙️ SISTEM AKSES MEMBER
 -- ========================================================== --
 local VIP_LIST = { 
     ["8catplayren"] = true,
-    ["opwaressu"] = true,
-    ["zaki123gg82"] = true,
-    ["pemancinganhanda"] = true,
-    ["wannz890"] = true,
-    ["rinalbau1522"] = true,
-    ["boci1261"] = true,
-    ["dhkvtgqevea"] = true,
-    ["mirz_4443"] = true,
-    ["rosemary_616"] = true,
-    ["reczz83"] = true,
-    ["imroon1"] = true,
-    ["pnzygod"] = true,
-    ["flick_v3n0m76"] = true,
-    ["ggpr320"] = true,
-    ["rafa2sf"] = true,
-    ["dzibaan_12"] = true,
-    ["lightlord054"] = true,
-    ["ohnyvell_4"] = true,
-    ["bulllll45"] = true,
-    ["hafri789"] = true,
-    ["farel_lagee"] = true,
-    ["rafa2sf_"] = true,
-    ["rorwww938"] = true,
-    ["upin124589"] = true,
-    ["arsyamh12"] = true,
-    ["escape_stunami1"] = true,
-    ["rizky_ridho2013"] = true,
-    ["damar474739"] = true,
-    ["berondon47"] = true,
-    ["vhyzu1"] = true,
-    ["akunke2ku612"] = true,
-    ["naga_ror"] = true,
-    ["godronglibinin"] = true,
-    ["nefz152"] = true,
-    ["only4christy"] = true,
-    ["skryfie3e"] = true,
-    ["mainrobloxajayam"] = true,
-    ["nadim141206"] = true,
-    ["wawj615435j"] = true,
-    ["alfin141006"] = true,
-    ["gr33n_frost934"] = true,
-    ["ridzz_192z"] = true,
-    ["vinzzzzz875"] = true,
-    ["erinlowery53680"] = true,
     ["a151215511515"] = true,
+    ["akunke2ku612"] = true,
+    ["alfin141006"] = true,
+    ["arsyamh12"] = true,
+    ["berondon47"] = true,
+    ["boci1261"] = true,
+    ["bulllll45"] = true,
+    ["damar474739"] = true,
+    ["dhkvtgqevea"] = true,
+    ["dzibaan_12"] = true,
+    ["erinlowery53680"] = true,
+    ["escape_stunami1"] = true,
+    ["farel_lagee"] = true,
+    ["flick_v3n0m76"] = true,
     ["gengdudul"] = true,
-    ["zero26xmoses"] = true,
-    ["singgelera"] = true -- Member Baru Ditambahkan
+    ["ggpr320"] = true,
+    ["godronglibinin"] = true,
+    ["gr33n_frost934"] = true,
+    ["hafri789"] = true,
+    ["imroon1"] = true,
+    ["lightlord054"] = true,
+    ["mainrobloxajayam"] = true,
+    ["mirz_4443"] = true,
+    ["nadim141206"] = true,
+    ["naga_ror"] = true,
+    ["nefz152"] = true,
+    ["ohmyvell_4"] = true,
+    ["only4christy"] = true,
+    ["opwaressu"] = true,
+    ["pemancinganhanda"] = true,
+    ["pnzygod"] = true,
+    ["rafa2sf"] = true,
+    ["rafa2sf_"] = true,
+    ["reczz83"] = true,
+    ["rinalbau1522"] = true,
+    ["rizky_ridho2013"] = true,
+    ["rorwww938"] = true,
+    ["rosemary_616"] = true,
+    ["ridzz_192z"] = true,
+    ["singgelera"] = true,
+    ["skryfie3e"] = true,
+    ["upin124589"] = true,
+    ["vhyzu1"] = true,
+    ["vinzzzzz875"] = true,
+    ["wannz890"] = true,
+    ["wawj615435j"] = true,
+    ["zaki123gg82"] = true,
+    ["zero26xmoses"] = true
 }
 
 local function cekAkses()
-    -- Mengubah nama player menjadi huruf kecil semua agar tidak error saat pengecekan
     local playerName = string.lower(Player.Name)
-    if VIP_LIST[playerName] then 
-        return true 
-    end
-    return false
+    return VIP_LIST[playerName] or false
 end
 
 -- Pengecekan Akses
@@ -95,7 +91,7 @@ local title = Instance.new("TextLabel", main)
 title.Size = UDim2.new(1, 0, 0.7, 0)
 title.BackgroundTransparency = 1
 title.Text = "SANSVIN V1.3 - MEMBER"
-title.TextColor3 = Color3.fromRGB(255, 230, 0) -- Kuning
+title.TextColor3 = Color3.fromRGB(255, 230, 0)
 title.Font = Enum.Font.FredokaOne
 title.TextSize = 20
 
@@ -149,7 +145,7 @@ local function fastReplace()
 end
 
 task.spawn(function()
-    while task.wait(0.5) do -- Jeda sedikit agar tidak lag
+    while task.wait(0.5) do
         fastReplace()
     end
 end)
