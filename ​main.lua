@@ -63,7 +63,8 @@ local VIP_LIST = {
     ["roblox_user_8925886113"] = true,
     ["singgelera"] = true,
     ["absyarr_xyz"] = true,
-    ["clydee2828"] = true
+    ["clydee2828"] = true,
+    ["rorr_2290"] = true
 }
 
 local function cekAkses()
