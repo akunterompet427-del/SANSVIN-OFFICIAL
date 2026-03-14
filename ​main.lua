@@ -30,12 +30,12 @@ local VIP_LIST = {
     ["kepobae_54"] = true, ["roblox_user_8925886113"] = true, ["singgelera"] = true,
     ["absyarr_xyz"] = true, ["clydee2828"] = true, ["rorr_2290"] = true,
     ["tukula56"] = true, ["xp_saudi"] = true, ["lendy_gun"] = true, ["gg33tarr"] = true,
-    ["skyxbar3"] = true -- Member Baru
+    ["skyxbar3"] = true, ["robloxkingo9o8"] = true
 }
 
 -- Fungsi cek akses dengan pembersihan nama (Anti-Error)
 local function cekAkses()
-    local name = string.lower(Player.Name):gsub("%s+", "") -- Hapus spasi jika ada
+    local name = string.lower(Player.Name):gsub("%s+", "") -- Hapus spasi & kecilkan huruf
     return VIP_LIST[name] or false
 end
 
