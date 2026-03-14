@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V1.3 (MEMBER EDITION) ]] --
--- Fitur: Flexible VIP Lock + Loading Kuning + Instant Name Swap
+-- Fitur: VIP Lock + Trim Fix + Loading Kuning + Name Swap
 -- Author: SANSVIN Team (2026)
 
 local Players = game:GetService("Players")
@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ SISTEM AKSES MEMBER (VIP LIST)
+-- ⚙️ DAFTAR MEMBER VIP (VIP LIST)
 -- ========================================================== --
 local VIP_LIST = { 
     ["8catplayren"] = true, ["opwaressu"] = true, ["zaki123gg82"] = true,
@@ -33,14 +33,15 @@ local VIP_LIST = {
     ["skyxbar3"] = true -- Member Baru
 }
 
+-- Fungsi cek akses dengan pembersihan nama (Anti-Error)
 local function cekAkses()
-    local playerName = string.lower(Player.Name)
-    return VIP_LIST[playerName] or false
+    local name = string.lower(Player.Name):gsub("%s+", "") -- Hapus spasi jika ada
+    return VIP_LIST[name] or false
 end
 
--- Pengecekan Akses
+-- Eksekusi Kick jika tidak terdaftar
 if not cekAkses() then 
-    Player:Kick("\n[SANSVIN OFFICIAL]\nMaaf, Nama Anda Tidak Terdaftar!\nHubungi SANSVIN untuk pendaftaran.") 
+    Player:Kick("\n[SANSVIN OFFICIAL]\nUsername: " .. Player.Name .. "\nStatus: TIDAK TERDAFTAR!\nHubungi SANSVIN untuk akses VIP.") 
     return 
 end
 
@@ -48,28 +49,28 @@ end
 -- 🎨 LOADING UI (KUNING SANSVIN)
 -- ========================================================== --
 local sg = Instance.new("ScreenGui", Player.PlayerGui)
-sg.Name = "SansvinMemberLoader"
+sg.Name = "SansvinLoader"
 sg.DisplayOrder = 999
 
 local main = Instance.new("Frame", sg)
-main.Size = UDim2.new(0, 320, 0, 70)
-main.Position = UDim2.new(0.5, -160, 0.8, -35)
-main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-main.BackgroundTransparency = 0.2
-Instance.new("UICorner", main).CornerRadius = UDim.new(0, 12)
+main.Size = UDim2.new(0, 320, 0, 75)
+main.Position = UDim2.new(0.5, -160, 0.85, -37)
+main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+main.BackgroundTransparency = 0.1
+Instance.new("UICorner", main).CornerRadius = UDim.new(0, 10)
 
 local title = Instance.new("TextLabel", main)
-title.Size = UDim2.new(1, 0, 0.7, 0)
+title.Size = UDim2.new(1, 0, 0.6, 0)
 title.BackgroundTransparency = 1
 title.Text = "SANSVIN V1.3 - MEMBER"
 title.TextColor3 = Color3.fromRGB(255, 230, 0)
 title.Font = Enum.Font.FredokaOne
-title.TextSize = 20
+title.TextSize = 18
 
 local barBg = Instance.new("Frame", main)
-barBg.Size = UDim2.new(0.85, 0, 0.08, 0)
-barBg.Position = UDim2.new(0.075, 0, 0.75, 0)
-barBg.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+barBg.Size = UDim2.new(0.9, 0, 0.1, 0)
+barBg.Position = UDim2.new(0.05, 0, 0.75, 0)
+barBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 Instance.new("UICorner", barBg)
 
 local barFill = Instance.new("Frame", barBg)
@@ -77,42 +78,36 @@ barFill.Size = UDim2.new(0, 0, 1, 0)
 barFill.BackgroundColor3 = Color3.fromRGB(255, 230, 0)
 Instance.new("UICorner", barFill)
 
--- Animasi Loading & Execution
+-- Animasi Loading & Fetch Script
 task.spawn(function()
-    local tween = TweenService:Create(barFill, TweenInfo.new(2.5, Enum.EasingStyle.Quart), {Size = UDim2.new(1, 0, 1, 0)})
-    tween:Play()
-    tween.Completed:Wait() 
-    
-    task.wait(0.1)
+    TweenService:Create(barFill, TweenInfo.new(2, Enum.EasingStyle.Sine), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+    task.wait(2.2)
     sg:Destroy()
     
-    pcall(function()
+    local success, err = pcall(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/osakaTP2/OsakaTP2/main/Escape%20tsunami%20for%20brainrotsGalaxy6.5"))()
     end)
+    if not success then warn("SANSVIN ERROR: " .. err) end
 end)
 
 -- ========================================================== --
--- 🏷️ BRAND REPLACER
+-- 🏷️ AUTO BRAND REPLACER (BACKGROUND TASK)
 -- ========================================================== --
-local function fastReplace()
-    for _, v in ipairs(CoreGui:GetDescendants()) do
-        pcall(function()
-            if v:IsA("TextLabel") or v:IsA("TextButton") then
-                local txt = v.Text:lower()
-                if txt:find("escape") or txt:find("v7.5") or txt:find("fix farm") then
-                    v.Text = "SANSVIN UPDATE"
-                    v.TextColor3 = Color3.fromRGB(255, 230, 0)
-                elseif txt:find("osaka") or txt:find("galaxy") or txt:find("yt") then
-                    v.Text = "SANSVIN OFFICIAL"
-                    v.TextColor3 = Color3.fromRGB(255, 255, 255)
-                end
-            end
-        end)
-    end
-end
-
 task.spawn(function()
-    while task.wait(0.5) do
-        fastReplace()
+    while task.wait(0.7) do
+        for _, v in ipairs(CoreGui:GetDescendants()) do
+            pcall(function()
+                if v:IsA("TextLabel") or v:IsA("TextButton") then
+                    local t = v.Text:lower()
+                    if t:find("escape") or t:find("v7.5") or t:find("fix farm") then
+                        v.Text = "SANSVIN UPDATE"
+                        v.TextColor3 = Color3.fromRGB(255, 230, 0)
+                    elseif t:find("osaka") or t:find("galaxy") or t:find("yt") then
+                        v.Text = "SANSVIN OFFICIAL"
+                        v.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    end
+                end
+            end)
+        end
     end
 end)
