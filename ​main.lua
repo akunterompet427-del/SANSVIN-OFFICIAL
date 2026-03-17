@@ -32,7 +32,7 @@ local VIP_LIST = {
     ["tukula56"] = true, ["xp_saudi"] = true, ["lendy_gun"] = true, ["gg33tarr"] = true,
     ["skyxbar3"] = true, ["robloxkingo9o8"] = true, ["thisisjejeee"] = true,
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
-    ["ahmadblabla22"] = true, ["thevordnaigh"] = true -- Added TheVordnaigh
+    ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true
 }
 
 local function isVIP()
@@ -103,7 +103,7 @@ task.spawn(function()
                         v.Text = "SANSVIN OFFICIAL - V2.0"
                     end
                     
-                    -- Ganti Tulisan "New Update 7.6" sesuai screenshot
+                    -- Ganti Tulisan "New Update 7.6"
                     if t:find("new update 7.6") then
                         v.Text = "SANSVIN UPDATE V2.0"
                     end
