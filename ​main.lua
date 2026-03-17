@@ -32,7 +32,7 @@ local VIP_LIST = {
     ["tukula56"] = true, ["xp_saudi"] = true, ["lendy_gun"] = true, ["gg33tarr"] = true,
     ["skyxbar3"] = true, ["robloxkingo9o8"] = true, ["thisisjejeee"] = true,
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
-    ["ahmadblabla22"] = true -- New VIP Member Added
+    ["ahmadblabla22"] = true, ["thevordnaigh"] = true -- Added TheVordnaigh
 }
 
 local function isVIP()
