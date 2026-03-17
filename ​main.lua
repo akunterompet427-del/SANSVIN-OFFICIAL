@@ -31,7 +31,8 @@ local VIP_LIST = {
     ["absyarr_xyz"] = true, ["clydee2828"] = true, ["rorr_2290"] = true,
     ["tukula56"] = true, ["xp_saudi"] = true, ["lendy_gun"] = true, ["gg33tarr"] = true,
     ["skyxbar3"] = true, ["robloxkingo9o8"] = true, ["thisisjejeee"] = true,
-    ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true
+    ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
+    ["ahmadblabla22"] = true -- New VIP Member Added
 }
 
 local function isVIP()
