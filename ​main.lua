@@ -1,6 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 ]] --
 -- Fitur: Lightning Loading + Ultra Clean Menu + Performa Maksimal
--- Update: 17/03/2026
+-- Update: 18/03/2026
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -34,7 +34,7 @@ local VIP_LIST = {
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
     ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true,
-    ["akucantikyahh"] = true
+    ["akucantikyahh"] = true, ["yo_gatau9"] = true
 }
 
 local function isVIP()
@@ -109,8 +109,8 @@ task.spawn(function()
                         v.Text = "SANSVIN UPDATE V2.0"
                     end
 
-                    if t:find("add stpatrick") or t:find("17/03/2026") then
-                        v.Text = "SANSVIN Update 17/03/2026"
+                    if t:find("add stpatrick") or t:find("17/03/2026") or t:find("18/03/2026") then
+                        v.Text = "SANSVIN Update " .. os.date("%d/%m/%Y")
                         v.TextColor3 = Color3.fromRGB(255, 230, 0)
                     end
                     
