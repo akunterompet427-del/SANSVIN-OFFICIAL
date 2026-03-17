@@ -33,15 +33,16 @@ local VIP_LIST = {
     ["skyxbar3"] = true, ["robloxkingo9o8"] = true, ["thisisjejeee"] = true,
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
-    ["ziolez82636"] = true
+    ["ziolez82636"] = true, ["jierrr9"] = true -- Member VIP Baru
 }
 
 local function isVIP()
-    return VIP_LIST[string.lower(Player.Name):gsub("%s+", "")] or false
+    local name = string.lower(Player.Name):gsub("%s+", "")
+    return VIP_LIST[name] ~= nil
 end
 
 if not isVIP() then 
-    Player:Kick("\n[SANSVIN OFFICIAL]\nStatus: AKSES DITOLAK!") 
+    Player:Kick("\n[SANSVIN OFFICIAL]\nStatus: AKSES DITOLAK!\nUsername tidak terdaftar di VIP.") 
     return 
 end
 
@@ -90,7 +91,7 @@ task.spawn(function()
 end)
 
 -- ========================================================== --
--- 🏷️ AUTO BRAND REPLACER (VERSI TERBARU)
+-- 🏷️ AUTO BRAND REPLACER
 -- ========================================================== --
 task.spawn(function()
     while task.wait(0.5) do
@@ -99,23 +100,19 @@ task.spawn(function()
                 if v:IsA("TextLabel") or v:IsA("TextButton") then
                     local t = v.Text:lower()
                     
-                    -- Ganti Header Utama
                     if t:find("osaka") or t:find("escape tsunami") or t:find("brainrots") then
                         v.Text = "SANSVIN OFFICIAL - V2.0"
                     end
                     
-                    -- Ganti Tulisan "New Update 7.6"
                     if t:find("new update 7.6") then
                         v.Text = "SANSVIN UPDATE V2.0"
                     end
 
-                    -- Ganti Tanggal Update
                     if t:find("add stpatrick") or t:find("17/03/2026") then
                         v.Text = "SANSVIN Update 17/03/2026"
                         v.TextColor3 = Color3.fromRGB(255, 230, 0)
                     end
                     
-                    -- Bersihkan Ikon Pisang
                     if v.Text == "🍌" or t:find("notification") then
                         v.Text = v.Text:gsub("🍌", "")
                         if v.Text == "" then v.Visible = false end
