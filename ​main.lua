@@ -33,7 +33,8 @@ local VIP_LIST = {
     ["skyxbar3"] = true, ["robloxkingo9o8"] = true, ["thisisjejeee"] = true,
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
-    ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true
+    ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true,
+    ["akucantikyahh"] = true
 }
 
 local function isVIP()
