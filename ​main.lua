@@ -8,7 +8,7 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (SANSVIN) - Updated: yo_gatau9 REMOVED
+-- ⚙️ DAFTAR VIP (SANSVIN)
 -- ========================================================== --
 local VIP_LIST = { 
     ["8catplayren"] = true, ["opwaressu"] = true, ["zaki123gg82"] = true,
@@ -34,7 +34,7 @@ local VIP_LIST = {
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
     ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true,
-    ["akucantikyahh"] = true
+    ["akucantikyahh"] = true, ["akskkdjsndhdh"] = true -- Nama baru berhasil ditambahkan
 }
 
 local function isVIP()
