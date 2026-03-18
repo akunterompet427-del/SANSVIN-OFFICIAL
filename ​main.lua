@@ -1,6 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 ]] --
 -- Fitur: Lightning Loading + Ultra Clean Menu + Performa Maksimal
--- Update: 18/03/2026
+-- Update: 19/03/2026
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -34,7 +34,8 @@ local VIP_LIST = {
     ["razstar04"] = true, ["reyazza12"] = true, ["sixsix66_7"] = true,
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
     ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true,
-    ["akucantikyahh"] = true, ["akskkdjsndhdh"] = true, ["yo_gatau9"] = true
+    ["akucantikyahh"] = true, ["akskkdjsndhdh"] = true, ["yo_gatau9"] = true,
+    ["sempyak33"] = true
 }
 
 local function isVIP()
