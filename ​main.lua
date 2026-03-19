@@ -35,7 +35,8 @@ local VIP_LIST = {
     ["ahmadblabla22"] = true, ["thevordnaigh"] = true, ["kingitachisusanoo"] = true,
     ["ziolez82636"] = true, ["jierrr9"] = true, ["frisco_178"] = true,
     ["akucantikyahh"] = true, ["akskkdjsndhdh"] = true, ["yo_gatau9"] = true,
-    ["sempyak33"] = true, ["rahmat135798"] = true, ["kudaponi_231"] = true -- Berhasil ditambahkan
+    ["sempyak33"] = true, ["rahmat135798"] = true, ["kudaponi_231"] = true,
+    ["poisonkiss_0"] = true -- Member baru ditambahkan
 }
 
 local function isVIP()
