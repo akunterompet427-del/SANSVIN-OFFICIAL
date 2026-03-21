@@ -1,5 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 21/03/2026 | Perpanjangan berondon47 (9 April)
+-- Update: 22/03/2026 | Status: Final Verified ✅
+-- Power: Performa Maksimal | Anti-Bypass
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -7,40 +8,41 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA)
+-- ⚙️ DAFTAR VIP (VERIFIED & LOWERCASED)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ UPDATE KHUSUS ]
-    ["berondon47"] = "2026-04-09", -- BARU: Habis 9 April 2026
-    ["a151215511515"] = "2026-04-04", 
-    ["godronglibinin"] = "2026-04-04", 
-    ["absyarr_xyz"] = "2026-04-04",
-    ["pnzygod"] = "2026-04-04", 
+    -- [ GROUP: EXPIRE 21 APRIL 2026 ]
+    ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", ["rendhspotify"] = "2026-04-21", 
+    ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", 
+    ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", 
+    ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", 
+    ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21", ["reyazza12"] = "2026-04-21", 
+    ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21", ["robloxkingo9o8"] = "2026-04-21", 
+    ["skyxbar3"] = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21",
 
-    -- [ MEMBER AKTIF - HABIS 21 APRIL ]
-    ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", 
-    ["rendhspotify"] = "2026-04-21", ["ciboyy_kids"] = "2026-04-21", 
-    ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", 
-    ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", 
-    ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", 
-    ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", 
+    -- [ GROUP: EXPIRE 9 APRIL 2026 ]
+    ["berondon47"] = "2026-04-09",
 
-    -- [ MEMBER LAMA - HITUNG MUNDUR ]
+    -- [ GROUP: EXPIRE 5 APRIL 2026 (2 MINGGU) ]
+    ["erinlowery53680"] = "2026-04-05", ["gg33tarr"] = "2026-04-05",
+
+    -- [ GROUP: EXPIRE 4 APRIL 2026 ]
+    ["a151215511515"] = "2026-04-04", ["godronglibinin"] = "2026-04-04", 
+    ["absyarr_xyz"] = "2026-04-04", ["pnzygod"] = "2026-04-04", 
+
+    -- [ GROUP: MEMBER LAMA / TRIAL ]
+    ["dhkvtgqevea"] = "2026-03-23",
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
     ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
     ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
-    ["jierrr9"] = "2026-04-01", ["ziolez82636"] = "2026-03-30", ["kingitachisusanoo"] = "2026-03-28",
-    
-    -- [ SISANYA ]
-    ["reyazza12"] = "2026-04-21", ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21",
-    ["robloxkingo9o8"] = "2026-04-21", ["skyxbar3"] = "2026-04-21", ["zaki123gg82"] = "2026-04-21"
+    ["jierrr9"] = "2026-04-01", ["ziolez82636"] = "2026-03-30", ["kingitachisusanoo"] = "2026-03-28"
 }
 
 -- ========================================================== --
--- 🛡️ FUNGSI SECURITY (DETEKSI USERNAME)
+-- 🛡️ FUNGSI SECURITY & VERIFIKASI
 -- ========================================================== --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
