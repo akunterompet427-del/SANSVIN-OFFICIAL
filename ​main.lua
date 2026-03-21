@@ -1,6 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Performa Maksimal | Anti-Bypass | RAM 4GB Safe
--- Update: 21/03/2026
+-- Update: 21/03/2026 | Perpanjangan pnzygod (2 Minggu)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -8,14 +7,15 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA AGAR BISA LOGIN)
+-- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ MEMBER BARU - 1 BULAN (HABIS: 21 APRIL 2026) ]
-    ["rendhspotify"] = "2026-04-21", -- BARU: Sudah huruf kecil
+    -- [ MEMBER BARU & PERPANJANGAN ]
+    ["pnzygod"] = "2026-04-04", -- PERPANJANG: Habis 4 April 2026 (2 Minggu)
+    ["rendhspotify"] = "2026-04-21", 
     ["ciboyy_kids"] = "2026-04-21", 
     ["izaaaa2504"] = "2026-04-21", 
     ["mur8165"] = "2026-04-21", 
@@ -23,29 +23,23 @@ local VIP_LIST = {
     ["xional5"] = "2026-04-21", 
     ["kyyyonima"] = "2026-04-21", 
     ["azhar_ilang2"] = "2026-04-21", 
-    ["lukyyyy049"] = "2026-04-21", 
-    ["yanzstory6"] = "2026-04-21", 
-    ["lyyonraa"] = "2026-04-21", 
-    ["faiznee"] = "2026-04-21",
+    ["lukyyyy049"] = "2026-04-21",
 
-    -- [ MEMBER LAMA - HITUNG MUNDUR ]
+    -- [ MEMBER LAMA ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
     ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
     ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
     ["jierrr9"] = "2026-04-01", ["ziolez82636"] = "2026-03-30", ["kingitachisusanoo"] = "2026-03-28",
-    ["thevordnaigh"] = "2026-03-26", ["ahmadblabla22"] = "2026-03-24", ["sixsix66_7"] = "2026-03-22",
     
     -- [ SISANYA ]
     ["reyazza12"] = "2026-04-21", ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21",
     ["robloxkingo9o8"] = "2026-04-21", ["skyxbar3"] = "2026-04-21", ["gg33tarr"] = "2026-04-21",
     ["lendy_gun"] = "2026-04-21", ["xp_saudi"] = "2026-04-21", ["tukula56"] = "2026-04-21",
-    ["rorr_2290"] = "2026-04-21", ["clydee2828"] = "2026-04-21", ["absyarr_xyz"] = "2026-04-21",
-    ["singgelera"] = "2026-04-21", ["roblox_user_8925886113"] = "2026-04-21", ["kepobae_54"] = "2026-04-21",
     ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21"
 }
 
 -- ========================================================== --
--- 🛡️ FUNGSI KEAMANAN (DETEKSI USERNAME)
+-- 🛡️ FUNGSI SECURITY (DETEKSI USERNAME)
 -- ========================================================== --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
@@ -81,9 +75,6 @@ local function ShowLockAndKick()
     Player:Kick("\n[ SANSVIN ]\nMASA AKTIF VIP HABIS!")
 end
 
--- ========================================================== --
--- ⏳ LOADING SCREEN
--- ========================================================== --
 local function StartLoading()
     local sg = Instance.new("ScreenGui", Player.PlayerGui)
     sg.Name = "SansvinLoader"
@@ -100,7 +91,6 @@ local function StartLoading()
     local barFill = Instance.new("Frame", barBg)
     barFill.Size, barFill.BackgroundColor3 = UDim2.new(0, 0, 1, 0), Color3.fromRGB(255, 230, 0)
     Instance.new("UICorner", barFill)
-    
     local t = TweenService:Create(barFill, TweenInfo.new(2.5), {Size = UDim2.new(1, 0, 1, 0)})
     t:Play()
     t.Completed:Wait()
@@ -108,9 +98,6 @@ local function StartLoading()
     sg:Destroy()
 end
 
--- ========================================================== --
--- 🔄 BRANDING & TIMER UPDATE
--- ========================================================== --
 task.spawn(function()
     while task.wait(1) do
         local ok, liveTime = getVIPStatus()
@@ -121,11 +108,8 @@ task.spawn(function()
                     local t = v.Text:lower()
                     if t:find("osaka") or t:find("escape tsunami") or t:find("brainrots") or t:find("v7.6") then
                         v.Text = "SANSVIN OFFICIAL - V2.0"
-                    elseif t:find("notification") or t:find("aktif:") or t:find("status:") or v.Text:find("07:00") then
+                    elseif t:find("notification") or t:find("aktif:") or t:find("status:") then
                         v.Text = "SANSVIN OFFICIAL | " .. liveTime
-                    elseif t:find("add stpatrick") or t:find("17/03") or t:find("18/03") or t:find("fix small") then
-                        v.Text = "⭐ SANSVIN UPDATED | 21/03/2026 ⭐"
-                        v.TextColor3 = Color3.fromRGB(255, 230, 0)
                     end
                 end
             end)
@@ -133,9 +117,6 @@ task.spawn(function()
     end
 end)
 
--- ========================================================== --
--- 🚀 EXECUTION
--- ========================================================== --
 local canRun, msg = getVIPStatus()
 if canRun then
     StartLoading()
