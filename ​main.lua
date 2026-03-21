@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 21/03/2026 | Perpanjangan pnzygod (2 Minggu)
+-- Update: 21/03/2026 | Perpanjangan dhkvtgqevea (2 Hari)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -13,19 +13,16 @@ local VIP_LIST = {
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ MEMBER BARU & PERPANJANGAN ]
-    ["pnzygod"] = "2026-04-04", -- PERPANJANG: Habis 4 April 2026 (2 Minggu)
-    ["rendhspotify"] = "2026-04-21", 
-    ["ciboyy_kids"] = "2026-04-21", 
-    ["izaaaa2504"] = "2026-04-21", 
-    ["mur8165"] = "2026-04-21", 
-    ["awerse1233"] = "2026-04-21", 
-    ["xional5"] = "2026-04-21", 
-    ["kyyyonima"] = "2026-04-21", 
-    ["azhar_ilang2"] = "2026-04-21", 
-    ["lukyyyy049"] = "2026-04-21",
+    -- [ UPDATE PERPANJANGAN KHUSUS ]
+    ["dhkvtgqevea"] = "2026-03-23", -- PERPANJANG: 2 Hari (Habis 23 Maret)
+    ["pnzygod"] = "2026-04-04", -- Perpanjangan sebelumnya (2 Minggu)
 
-    -- [ MEMBER LAMA ]
+    -- [ MEMBER BARU - HABIS 21 APRIL ]
+    ["rendhspotify"] = "2026-04-21", ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", 
+    ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", 
+    ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21",
+
+    -- [ MEMBER LAMA - HITUNG MUNDUR ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
     ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
     ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
@@ -34,7 +31,6 @@ local VIP_LIST = {
     -- [ SISANYA ]
     ["reyazza12"] = "2026-04-21", ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21",
     ["robloxkingo9o8"] = "2026-04-21", ["skyxbar3"] = "2026-04-21", ["gg33tarr"] = "2026-04-21",
-    ["lendy_gun"] = "2026-04-21", ["xp_saudi"] = "2026-04-21", ["tukula56"] = "2026-04-21",
     ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21"
 }
 
