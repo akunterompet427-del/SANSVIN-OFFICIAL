@@ -15,7 +15,7 @@ local VIP_LIST = {
     ["opwaressu"] = "9999-12-31", -- Permanent
 
     -- [ MEMBER BARU - 1 BULAN (21 APRIL) ]
-    ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21",
+    ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21",
 
     -- [ MEMBER LAMA - HITUNG MUNDUR PER 2 HARI ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
