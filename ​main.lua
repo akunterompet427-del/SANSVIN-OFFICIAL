@@ -15,8 +15,9 @@ local VIP_LIST = {
     ["opwaressu"] = "9999-12-31", -- Permanent
 
     -- [ MEMBER BARU - 1 BULAN (21 APRIL) ]
-    ["awerse1233"] = "2026-04-21", ["Xional5"] = "2026-04-21", ["Kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21",
-    ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21",
+    ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", ["Xional5"] = "2026-04-21", ["Kyyyonima"] = "2026-04-21",
+    ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", 
+    ["faiznee"] = "2026-04-21",
 
     -- [ MEMBER LAMA - HITUNG MUNDUR PER 2 HARI ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
@@ -49,21 +50,15 @@ local VIP_LIST = {
     ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21"
 }
 
--- ========================================================== --
--- 🛡️ FUNGSI SECURITY & STATUS
--- ========================================================== --
+-- [ FUNGSI KEAMANAN & STATUS ] --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
     local expStr = VIP_LIST[name]
-    
     if not expStr then return false, "TIDAK TERDAFTAR" end
     if expStr == "9999-12-31" then return true, "STATUS: PERMANENT" end
-    
     local y, m, d = expStr:match("(%d+)-(%d+)-(%d+)")
     local diff = os.time({year=y, month=m, day=d, hour=23, min=59, sec=59}) - os.time()
-    
     if diff <= 0 then return false, "MASA AKTIF HABIS" end
-    
     local days = math.floor(diff / 86400)
     local hours = math.floor((diff % 86400) / 3600)
     local mins = math.floor((diff % 3600) / 60)
@@ -86,9 +81,6 @@ local function ShowLockAndKick()
     Player:Kick("\n[ SANSVIN ]\nMASA AKTIF VIP HABIS!")
 end
 
--- ========================================================== --
--- ⏳ LOADING SCREEN (KUNING)
--- ========================================================== --
 local function StartLoading()
     local sg = Instance.new("ScreenGui", Player.PlayerGui)
     sg.Name = "SansvinLoader"
@@ -105,7 +97,6 @@ local function StartLoading()
     local barFill = Instance.new("Frame", barBg)
     barFill.Size, barFill.BackgroundColor3 = UDim2.new(0, 0, 1, 0), Color3.fromRGB(255, 230, 0)
     Instance.new("UICorner", barFill)
-    
     local t = TweenService:Create(barFill, TweenInfo.new(2.5), {Size = UDim2.new(1, 0, 1, 0)})
     t:Play()
     t.Completed:Wait()
@@ -113,9 +104,6 @@ local function StartLoading()
     sg:Destroy()
 end
 
--- ========================================================== --
--- 🔄 BRANDING & TIMER SWEEPER
--- ========================================================== --
 task.spawn(function()
     while task.wait(1) do
         local ok, liveTime = getVIPStatus()
@@ -138,9 +126,6 @@ task.spawn(function()
     end
 end)
 
--- ========================================================== --
--- 🚀 EXECUTION
--- ========================================================== --
 local canRun, msg = getVIPStatus()
 if canRun then
     StartLoading()
