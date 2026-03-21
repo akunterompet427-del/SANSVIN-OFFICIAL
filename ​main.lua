@@ -8,15 +8,15 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP & TANGGAL EXPIRED (YYYY-MM-DD)
+-- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", -- Permanent
 
     -- [ MEMBER BARU - 1 BULAN (HABIS: 21 APRIL 2026) ]
-    ["Izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", 
-    ["Xional5"] = "2026-04-21", ["Kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", 
+    ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", 
+    ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", 
     ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", 
     ["faiznee"] = "2026-04-21",
 
@@ -55,6 +55,7 @@ local VIP_LIST = {
 -- 🛡️ FUNGSI SECURITY & STATUS
 -- ========================================================== --
 local function getVIPStatus()
+    -- Mengubah username pemain ke huruf kecil agar cocok dengan daftar
     local name = string.lower(Player.Name):gsub("%s+", "")
     local expStr = VIP_LIST[name]
     
