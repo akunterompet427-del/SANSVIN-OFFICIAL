@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 21/03/2026 | Perpanjangan zero26xmoses (1 Bulan)
+-- Update: 21/03/2026 | Perpanjangan Batch (2 Minggu)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -13,17 +13,23 @@ local VIP_LIST = {
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ UPDATE PERPANJANGAN TERBARU ]
-    ["zero26xmoses"] = "2026-04-21", -- PERPANJANG: 1 Bulan (Habis 21 April)
-    ["rinalbau1522"] = "2026-04-21", 
-    ["dhkvtgqevea"] = "2026-03-23", 
+    -- [ UPDATE PERPANJANGAN 2 MINGGU (HABIS 4 APRIL) ]
+    ["a151215511515"] = "2026-04-04", 
+    ["godronglibinin"] = "2026-04-04", 
+    ["absyarr_xyz"] = "2026-04-04",
     ["pnzygod"] = "2026-04-04", 
 
-    -- [ MEMBER AKTIF - HABIS 21 APRIL ]
-    ["rendhspotify"] = "2026-04-21", ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", 
-    ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", 
-    ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21",
-    ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21",
+    -- [ UPDATE PERPANJANGAN 1 BULAN (HABIS 21 APRIL) ]
+    ["zero26xmoses"] = "2026-04-21",
+    ["rinalbau1522"] = "2026-04-21", 
+    ["rendhspotify"] = "2026-04-21",
+    ["ciboyy_kids"] = "2026-04-21",
+
+    -- [ MEMBER AKTIF LAINNYA ]
+    ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", 
+    ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", 
+    ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", 
+    ["faiznee"] = "2026-04-21", ["dhkvtgqevea"] = "2026-03-23",
 
     -- [ MEMBER LAMA - HITUNG MUNDUR ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
