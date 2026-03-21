@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 21/03/2026 | Perpanjangan dhkvtgqevea (2 Hari)
+-- Update: 21/03/2026 | Perpanjangan rinalbau1522 (1 Bulan)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -13,14 +13,16 @@ local VIP_LIST = {
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ UPDATE PERPANJANGAN KHUSUS ]
-    ["dhkvtgqevea"] = "2026-03-23", -- PERPANJANG: 2 Hari (Habis 23 Maret)
+    -- [ UPDATE PERPANJANGAN TERBARU ]
+    ["rinalbau1522"] = "2026-04-21", -- PERPANJANG: 1 Bulan (Habis 21 April)
+    ["dhkvtgqevea"] = "2026-03-23", -- Perpanjangan sebelumnya (2 Hari)
     ["pnzygod"] = "2026-04-04", -- Perpanjangan sebelumnya (2 Minggu)
 
-    -- [ MEMBER BARU - HABIS 21 APRIL ]
+    -- [ MEMBER AKTIF - HABIS 21 APRIL ]
     ["rendhspotify"] = "2026-04-21", ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", 
     ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", 
     ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21",
+    ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21",
 
     -- [ MEMBER LAMA - HITUNG MUNDUR ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
@@ -30,8 +32,7 @@ local VIP_LIST = {
     
     -- [ SISANYA ]
     ["reyazza12"] = "2026-04-21", ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21",
-    ["robloxkingo9o8"] = "2026-04-21", ["skyxbar3"] = "2026-04-21", ["gg33tarr"] = "2026-04-21",
-    ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21"
+    ["robloxkingo9o8"] = "2026-04-21", ["skyxbar3"] = "2026-04-21", ["zaki123gg82"] = "2026-04-21"
 }
 
 -- ========================================================== --
