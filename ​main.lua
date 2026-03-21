@@ -1,5 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 21/03/2026 | Perpanjangan rinalbau1522 (1 Bulan)
+-- Update: 21/03/2026 | Perpanjangan zero26xmoses (1 Bulan)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -14,9 +14,10 @@ local VIP_LIST = {
     ["opwaressu"] = "9999-12-31", 
 
     -- [ UPDATE PERPANJANGAN TERBARU ]
-    ["rinalbau1522"] = "2026-04-21", -- PERPANJANG: 1 Bulan (Habis 21 April)
-    ["dhkvtgqevea"] = "2026-03-23", -- Perpanjangan sebelumnya (2 Hari)
-    ["pnzygod"] = "2026-04-04", -- Perpanjangan sebelumnya (2 Minggu)
+    ["zero26xmoses"] = "2026-04-21", -- PERPANJANG: 1 Bulan (Habis 21 April)
+    ["rinalbau1522"] = "2026-04-21", 
+    ["dhkvtgqevea"] = "2026-03-23", 
+    ["pnzygod"] = "2026-04-04", 
 
     -- [ MEMBER AKTIF - HABIS 21 APRIL ]
     ["rendhspotify"] = "2026-04-21", ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", 
