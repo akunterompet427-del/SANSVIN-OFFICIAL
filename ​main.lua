@@ -8,20 +8,27 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA)
+-- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL SEMUA AGAR BISA LOGIN)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
     -- [ MEMBER BARU - 1 BULAN (HABIS: 21 APRIL 2026) ]
-    ["ciboyy_kids"] = "2026-04-21", -- BARU DITAMBAHKAN
-    ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", ["awerse1233"] = "2026-04-21", 
-    ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", ["azhar_ilang2"] = "2026-04-21", 
-    ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", ["lyyonraa"] = "2026-04-21", 
+    ["rendhspotify"] = "2026-04-21", -- BARU: Sudah huruf kecil
+    ["ciboyy_kids"] = "2026-04-21", 
+    ["izaaaa2504"] = "2026-04-21", 
+    ["mur8165"] = "2026-04-21", 
+    ["awerse1233"] = "2026-04-21", 
+    ["xional5"] = "2026-04-21", 
+    ["kyyyonima"] = "2026-04-21", 
+    ["azhar_ilang2"] = "2026-04-21", 
+    ["lukyyyy049"] = "2026-04-21", 
+    ["yanzstory6"] = "2026-04-21", 
+    ["lyyonraa"] = "2026-04-21", 
     ["faiznee"] = "2026-04-21",
 
-    -- [ MEMBER LAMA - HITUNG MUNDUR PER 2 HARI ]
+    -- [ MEMBER LAMA - HITUNG MUNDUR ]
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
     ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
     ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
@@ -34,33 +41,24 @@ local VIP_LIST = {
     ["lendy_gun"] = "2026-04-21", ["xp_saudi"] = "2026-04-21", ["tukula56"] = "2026-04-21",
     ["rorr_2290"] = "2026-04-21", ["clydee2828"] = "2026-04-21", ["absyarr_xyz"] = "2026-04-21",
     ["singgelera"] = "2026-04-21", ["roblox_user_8925886113"] = "2026-04-21", ["kepobae_54"] = "2026-04-21",
-    ["zero26xmoses"] = "2026-04-21", ["gengdudul"] = "2026-04-21", ["a151215511515"] = "2026-04-21",
-    ["erinlowery53680"] = "2026-04-21", ["vinzzzzz875"] = "2026-04-21", ["ridzz_192z"] = "2026-04-21",
-    ["gr33n_frost934"] = "2026-04-21", ["alfin141006"] = "2026-04-21", ["wawj615435j"] = "2026-04-21",
-    ["nadim141206"] = "2026-04-21", ["mainrobloxajayam"] = "2026-04-21", ["skryfie3e"] = "2026-04-21",
-    ["only4christy"] = "2026-04-21", ["nefz152"] = "2026-04-21", ["godronglibinin"] = "2026-04-21",
-    ["naga_ror"] = "2026-04-21", ["akunke2ku612"] = "2026-04-21", ["vhyzu1"] = "2026-04-21",
-    ["berondon47"] = "2026-04-21", ["damar474739"] = "2026-04-21", ["rizky_ridho2013"] = "2026-04-21",
-    ["escape_stunami1"] = "2026-04-21", ["arsyamh12"] = "2026-04-21", ["upin124589"] = "2026-04-21",
-    ["rorwww938"] = "2026-04-21", ["rafa2sf_"] = "2026-04-21", ["farel_lagee"] = "2026-04-21",
-    ["hafri789"] = "2026-04-21", ["bulllll45"] = "2026-04-21", ["ohnyvell_4"] = "2026-04-21",
-    ["lightlord054"] = "2026-04-21", ["dzibaan_12"] = "2026-04-21", ["rafa2sf"] = "2026-04-21",
-    ["ggpr320"] = "2026-04-21", ["flick_v3n0m76"] = "2026-04-21", ["pnzygod"] = "2026-04-21",
-    ["imroon1"] = "2026-04-21", ["reczz83"] = "2026-04-21", ["rosemary_616"] = "2026-04-21",
-    ["mirz_4443"] = "2026-04-21", ["dhkvtgqevea"] = "2026-04-21", ["boci1261"] = "2026-04-21",
-    ["rinalbau1522"] = "2026-04-21", ["wannz890"] = "2026-04-21", ["pemancinganhanda"] = "2026-04-21",
     ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21"
 }
 
--- [ SISTEM FUNGSI ] --
+-- ========================================================== --
+-- 🛡️ FUNGSI KEAMANAN (DETEKSI USERNAME)
+-- ========================================================== --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
     local expStr = VIP_LIST[name]
+    
     if not expStr then return false, "TIDAK TERDAFTAR" end
     if expStr == "9999-12-31" then return true, "STATUS: PERMANENT" end
+    
     local y, m, d = expStr:match("(%d+)-(%d+)-(%d+)")
     local diff = os.time({year=y, month=m, day=d, hour=23, min=59, sec=59}) - os.time()
+    
     if diff <= 0 then return false, "MASA AKTIF HABIS" end
+    
     local days = math.floor(diff / 86400)
     local hours = math.floor((diff % 86400) / 3600)
     local mins = math.floor((diff % 3600) / 60)
@@ -83,6 +81,9 @@ local function ShowLockAndKick()
     Player:Kick("\n[ SANSVIN ]\nMASA AKTIF VIP HABIS!")
 end
 
+-- ========================================================== --
+-- ⏳ LOADING SCREEN
+-- ========================================================== --
 local function StartLoading()
     local sg = Instance.new("ScreenGui", Player.PlayerGui)
     sg.Name = "SansvinLoader"
@@ -99,6 +100,7 @@ local function StartLoading()
     local barFill = Instance.new("Frame", barBg)
     barFill.Size, barFill.BackgroundColor3 = UDim2.new(0, 0, 1, 0), Color3.fromRGB(255, 230, 0)
     Instance.new("UICorner", barFill)
+    
     local t = TweenService:Create(barFill, TweenInfo.new(2.5), {Size = UDim2.new(1, 0, 1, 0)})
     t:Play()
     t.Completed:Wait()
@@ -106,6 +108,9 @@ local function StartLoading()
     sg:Destroy()
 end
 
+-- ========================================================== --
+-- 🔄 BRANDING & TIMER UPDATE
+-- ========================================================== --
 task.spawn(function()
     while task.wait(1) do
         local ok, liveTime = getVIPStatus()
@@ -128,6 +133,9 @@ task.spawn(function()
     end
 end)
 
+-- ========================================================== --
+-- 🚀 EXECUTION
+-- ========================================================== --
 local canRun, msg = getVIPStatus()
 if canRun then
     StartLoading()
