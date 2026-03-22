@@ -1,5 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
 -- Update Terakhir: 22/03/2026 | Status: Final Audit Verified ✅
+-- Penambahan: thevordnaigh (Verified 2 Minggu)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -14,9 +15,9 @@ local VIP_LIST = {
     ["opwaressu"] = "9999-12-31", 
 
     -- [ BATCH 2 MINGGU: EXPIRE 05 APRIL 2026 ]
+    ["thevordnaigh"] = "2026-04-05", -- TERVERIFIKASI
     ["nefz152"] = "2026-04-05", 
     ["vinzzzzz875"] = "2026-04-05", 
-    ["thevordnaigh"] = "2026-04-05", 
     ["rafa2sf"] = "2026-04-05", 
     ["wannz890"] = "2026-04-05",
     ["gg33tarr"] = "2026-04-05",
