@@ -1,6 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
 -- Update Terakhir: 22/03/2026 | Status: Final Audit Verified ✅
--- Penambahan: roblox_user_8925886113 (Verified)
+-- Penambahan: alfin141006 (Verified 1 Minggu)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -14,16 +14,6 @@ local VIP_LIST = {
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ GROUP: EXPIRE 05 APRIL 2026 (2 MINGGU) ]
-    ["roblox_user_8925886113"] = "2026-04-05", 
-    ["thevordnaigh"]           = "2026-04-05", 
-    ["nefz152"]                = "2026-04-05", 
-    ["vinzzzzz875"]            = "2026-04-05", 
-    ["rafa2sf"]                = "2026-04-05", 
-    ["wannz890"]               = "2026-04-05",
-    ["gg33tarr"]               = "2026-04-05",
-    ["erinlowery53680"]        = "2026-04-05",
-
     -- [ GROUP: EXPIRE 21 APRIL 2026 (1 BULAN) ]
     ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", ["rendhspotify"] = "2026-04-21", 
     ["ciboyy_kids"]  = "2026-04-21", ["izaaaa2504"]  = "2026-04-21", ["mur8165"]      = "2026-04-21", 
@@ -33,17 +23,24 @@ local VIP_LIST = {
     ["razstar04"]    = "2026-04-21", ["thisisjejeee"] = "2026-04-21", ["robloxkingo9o8"] = "2026-04-21", 
     ["skyxbar3"]     = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"]  = "2026-04-21",
 
-    -- [ MEMBER LAINNYA & LAMA ]
+    -- [ GROUP: EXPIRE 05 APRIL 2026 (2 MINGGU) ]
+    ["roblox_user_8925886113"] = "2026-04-05", ["thevordnaigh"] = "2026-04-05", 
+    ["nefz152"]                = "2026-04-05", ["vinzzzzz875"] = "2026-04-05", 
+    ["rafa2sf"]                = "2026-04-05", ["wannz890"]    = "2026-04-05",
+    ["gg33tarr"]               = "2026-04-05", ["erinlowery53680"] = "2026-04-05",
+
+    -- [ BATCH MINGGUAN & LAINNYA ]
+    ["alfin141006"]      = "2026-03-29", -- BARU: Habis 29 Maret
     ["berondon47"]       = "2026-04-09",
     ["a151215511515"]    = "2026-04-04", ["godronglibinin"]   = "2026-04-04", 
     ["absyarr_xyz"]      = "2026-04-04", ["pnzygod"]          = "2026-04-04", 
-    ["dhkvtgqevea"]      = "2026-03-23", ["menujurebirth2026"] = "2026-04-19", 
-    ["poisonkiss_0"]     = "2026-04-17", ["kudaponi_231"]     = "2026-04-15",
-    ["rahmat135798"]     = "2026-04-13", ["sempyak33"]        = "2026-04-11", 
-    ["yo_gatau9"]        = "2026-04-09", ["akskkdjsndhdh"]    = "2026-04-07", 
-    ["akucantikyahh"]    = "2026-04-05", ["frisco_178"]       = "2026-04-03",
-    ["jierrr9"]          = "2026-04-01", ["ziolez82636"]      = "2026-03-30", 
-    ["kingitachisusanoo"] = "2026-03-28"
+    ["dhkvtgqevea"]      = "2026-03-23", ["ziolez82636"]      = "2026-03-30",
+    
+    -- [ MEMBER LAMA - HITUNG MUNDUR ]
+    ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
+    ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
+    ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
+    ["jierrr9"] = "2026-04-01", ["kingitachisusanoo"] = "2026-03-28"
 }
 
 -- ========================================================== --
