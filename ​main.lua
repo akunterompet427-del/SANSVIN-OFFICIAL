@@ -1,6 +1,5 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
--- Update: 22/03/2026 | Status: Final Verified ✅
--- Power: Performa Maksimal | Anti-Bypass
+-- Update Terakhir: 22/03/2026 | Status: Final Audit Verified ✅
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -8,13 +7,22 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (VERIFIED & LOWERCASED)
+-- ⚙️ DAFTAR VIP (HURUF KECIL - TANPA DUPLIKASI)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ GROUP: EXPIRE 21 APRIL 2026 ]
+    -- [ BATCH 2 MINGGU: EXPIRE 05 APRIL 2026 ]
+    ["nefz152"] = "2026-04-05", 
+    ["vinzzzzz875"] = "2026-04-05", 
+    ["thevordnaigh"] = "2026-04-05", 
+    ["rafa2sf"] = "2026-04-05", 
+    ["wannz890"] = "2026-04-05",
+    ["gg33tarr"] = "2026-04-05",
+    ["erinlowery53680"] = "2026-04-05",
+
+    -- [ BATCH 1 BULAN: EXPIRE 21 APRIL 2026 ]
     ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", ["rendhspotify"] = "2026-04-21", 
     ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", 
     ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", 
@@ -23,17 +31,10 @@ local VIP_LIST = {
     ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21", ["robloxkingo9o8"] = "2026-04-21", 
     ["skyxbar3"] = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21",
 
-    -- [ GROUP: EXPIRE 9 APRIL 2026 ]
+    -- [ LAINNYA & MEMBER LAMA ]
     ["berondon47"] = "2026-04-09",
-
-    -- [ GROUP: EXPIRE 5 APRIL 2026 (2 MINGGU) ]
-    ["erinlowery53680"] = "2026-04-05", ["gg33tarr"] = "2026-04-05",
-
-    -- [ GROUP: EXPIRE 4 APRIL 2026 ]
     ["a151215511515"] = "2026-04-04", ["godronglibinin"] = "2026-04-04", 
     ["absyarr_xyz"] = "2026-04-04", ["pnzygod"] = "2026-04-04", 
-
-    -- [ GROUP: MEMBER LAMA / TRIAL ]
     ["dhkvtgqevea"] = "2026-03-23",
     ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
     ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
@@ -42,7 +43,7 @@ local VIP_LIST = {
 }
 
 -- ========================================================== --
--- 🛡️ FUNGSI SECURITY & VERIFIKASI
+-- 🛡️ SISTEM VALIDASI KEAMANAN
 -- ========================================================== --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
@@ -52,8 +53,13 @@ local function getVIPStatus()
     if expStr == "9999-12-31" then return true, "STATUS: PERMANENT" end
     
     local y, m, d = expStr:match("(%d+)-(%d+)-(%d+)")
-    local diff = os.time({year=y, month=m, day=d, hour=23, min=59, sec=59}) - os.time()
+    local success, expTime = pcall(function() 
+        return os.time({year=y, month=m, day=d, hour=23, min=59, sec=59}) 
+    end)
     
+    if not success then return false, "ERROR FORMAT TANGGAL" end
+    
+    local diff = expTime - os.time()
     if diff <= 0 then return false, "MASA AKTIF HABIS" end
     
     local days = math.floor(diff / 86400)
@@ -108,10 +114,10 @@ task.spawn(function()
         for _, v in ipairs(CoreGui:GetDescendants()) do
             pcall(function()
                 if v:IsA("TextLabel") or v:IsA("TextButton") then
-                    local t = v.Text:lower()
-                    if t:find("osaka") or t:find("escape tsunami") or t:find("brainrots") or t:find("v7.6") then
+                    local textLower = v.Text:lower()
+                    if textLower:find("osaka") or textLower:find("tsunami") or textLower:find("v7.6") then
                         v.Text = "SANSVIN OFFICIAL - V2.0"
-                    elseif t:find("notification") or t:find("aktif:") or t:find("status:") then
+                    elseif textLower:find("aktif:") or textLower:find("status:") then
                         v.Text = "SANSVIN OFFICIAL | " .. liveTime
                     end
                 end
