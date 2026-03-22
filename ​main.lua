@@ -1,6 +1,6 @@
 -- [[ SANSVIN OFFICIAL - V2.0 PREMIUM ]] --
 -- Update Terakhir: 22/03/2026 | Status: Final Audit Verified ✅
--- Penambahan: thevordnaigh (Verified 2 Minggu)
+-- Penambahan: roblox_user_8925886113 (Verified)
 
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
@@ -8,43 +8,46 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 
 -- ========================================================== --
--- ⚙️ DAFTAR VIP (HURUF KECIL - TANPA DUPLIKASI)
+-- ⚙️ DAFTAR VIP (WAJIB HURUF KECIL - AUTO SYNC)
 -- ========================================================== --
 local VIP_LIST = { 
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ BATCH 2 MINGGU: EXPIRE 05 APRIL 2026 ]
-    ["thevordnaigh"] = "2026-04-05", -- TERVERIFIKASI
-    ["nefz152"] = "2026-04-05", 
-    ["vinzzzzz875"] = "2026-04-05", 
-    ["rafa2sf"] = "2026-04-05", 
-    ["wannz890"] = "2026-04-05",
-    ["gg33tarr"] = "2026-04-05",
-    ["erinlowery53680"] = "2026-04-05",
+    -- [ GROUP: EXPIRE 05 APRIL 2026 (2 MINGGU) ]
+    ["roblox_user_8925886113"] = "2026-04-05", 
+    ["thevordnaigh"]           = "2026-04-05", 
+    ["nefz152"]                = "2026-04-05", 
+    ["vinzzzzz875"]            = "2026-04-05", 
+    ["rafa2sf"]                = "2026-04-05", 
+    ["wannz890"]               = "2026-04-05",
+    ["gg33tarr"]               = "2026-04-05",
+    ["erinlowery53680"]        = "2026-04-05",
 
-    -- [ BATCH 1 BULAN: EXPIRE 21 APRIL 2026 ]
+    -- [ GROUP: EXPIRE 21 APRIL 2026 (1 BULAN) ]
     ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", ["rendhspotify"] = "2026-04-21", 
-    ["ciboyy_kids"] = "2026-04-21", ["izaaaa2504"] = "2026-04-21", ["mur8165"] = "2026-04-21", 
-    ["awerse1233"] = "2026-04-21", ["xional5"] = "2026-04-21", ["kyyyonima"] = "2026-04-21", 
-    ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"] = "2026-04-21", ["yanzstory6"] = "2026-04-21", 
-    ["lyyonraa"] = "2026-04-21", ["faiznee"] = "2026-04-21", ["reyazza12"] = "2026-04-21", 
-    ["razstar04"] = "2026-04-21", ["thisisjejeee"] = "2026-04-21", ["robloxkingo9o8"] = "2026-04-21", 
-    ["skyxbar3"] = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"] = "2026-04-21",
+    ["ciboyy_kids"]  = "2026-04-21", ["izaaaa2504"]  = "2026-04-21", ["mur8165"]      = "2026-04-21", 
+    ["awerse1233"]   = "2026-04-21", ["xional5"]     = "2026-04-21", ["kyyyonima"]   = "2026-04-21", 
+    ["azhar_ilang2"] = "2026-04-21", ["lukyyyy049"]  = "2026-04-21", ["yanzstory6"]  = "2026-04-21", 
+    ["lyyonraa"]     = "2026-04-21", ["faiznee"]     = "2026-04-21", ["reyazza12"]   = "2026-04-21", 
+    ["razstar04"]    = "2026-04-21", ["thisisjejeee"] = "2026-04-21", ["robloxkingo9o8"] = "2026-04-21", 
+    ["skyxbar3"]     = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"]  = "2026-04-21",
 
-    -- [ LAINNYA & MEMBER LAMA ]
-    ["berondon47"] = "2026-04-09",
-    ["a151215511515"] = "2026-04-04", ["godronglibinin"] = "2026-04-04", 
-    ["absyarr_xyz"] = "2026-04-04", ["pnzygod"] = "2026-04-04", 
-    ["dhkvtgqevea"] = "2026-03-23",
-    ["menujurebirth2026"] = "2026-04-19", ["poisonkiss_0"] = "2026-04-17", ["kudaponi_231"] = "2026-04-15",
-    ["rahmat135798"] = "2026-04-13", ["sempyak33"] = "2026-04-11", ["yo_gatau9"] = "2026-04-09",
-    ["akskkdjsndhdh"] = "2026-04-07", ["akucantikyahh"] = "2026-04-05", ["frisco_178"] = "2026-04-03",
-    ["jierrr9"] = "2026-04-01", ["ziolez82636"] = "2026-03-30", ["kingitachisusanoo"] = "2026-03-28"
+    -- [ MEMBER LAINNYA & LAMA ]
+    ["berondon47"]       = "2026-04-09",
+    ["a151215511515"]    = "2026-04-04", ["godronglibinin"]   = "2026-04-04", 
+    ["absyarr_xyz"]      = "2026-04-04", ["pnzygod"]          = "2026-04-04", 
+    ["dhkvtgqevea"]      = "2026-03-23", ["menujurebirth2026"] = "2026-04-19", 
+    ["poisonkiss_0"]     = "2026-04-17", ["kudaponi_231"]     = "2026-04-15",
+    ["rahmat135798"]     = "2026-04-13", ["sempyak33"]        = "2026-04-11", 
+    ["yo_gatau9"]        = "2026-04-09", ["akskkdjsndhdh"]    = "2026-04-07", 
+    ["akucantikyahh"]    = "2026-04-05", ["frisco_178"]       = "2026-04-03",
+    ["jierrr9"]          = "2026-04-01", ["ziolez82636"]      = "2026-03-30", 
+    ["kingitachisusanoo"] = "2026-03-28"
 }
 
 -- ========================================================== --
--- 🛡️ SISTEM VALIDASI KEAMANAN
+-- 🛡️ SISTEM VALIDASI KEAMANAN (ANTI-BYPASS)
 -- ========================================================== --
 local function getVIPStatus()
     local name = string.lower(Player.Name):gsub("%s+", "")
