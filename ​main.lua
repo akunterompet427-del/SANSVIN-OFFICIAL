@@ -13,7 +13,8 @@ local VIP_LIST = {
     -- [ OWNER ]
     ["opwaressu"] = "9999-12-31", 
 
-    -- [ GROUP: EXPIRE 21 APRIL 2026 (1 BULAN) ]
+    -- [ GROUP: EXPIRE 22 APRIL 2026 (1 BULAN) ]
+    ["naga_ror"]     = "2026-04-22", -- Perpanjang 1 Bulan (dari 22 Maret)
     ["zero26xmoses"] = "2026-04-21", ["rinalbau1522"] = "2026-04-21", ["rendhspotify"] = "2026-04-21", 
     ["ciboyy_kids"]  = "2026-04-21", ["izaaaa2504"]  = "2026-04-21", ["mur8165"]      = "2026-04-21", 
     ["awerse1233"]   = "2026-04-21", ["xional5"]     = "2026-04-21", ["kyyyonima"]   = "2026-04-21", 
@@ -23,6 +24,8 @@ local VIP_LIST = {
     ["skyxbar3"]     = "2026-04-21", ["zaki123gg82"] = "2026-04-21", ["8catplayren"]  = "2026-04-21",
 
     -- [ GROUP: EXPIRE 05 APRIL 2026 (2 MINGGU) ]
+    ["escape_stunami1"]        = "2026-04-05", -- Member Baru
+    ["ggpr320"]                = "2026-04-05", -- Member Baru
     ["reczz83"]                = "2026-04-05", 
     ["erinlowery53680"]        = "2026-04-05", 
     ["roblox_user_8925886113"] = "2026-04-05", 
@@ -61,7 +64,7 @@ local function getVIPStatus()
     
     local y, m, d = expStr:match("(%d+)-(%d+)-(%d+)")
     local success, expTime = pcall(function() 
-        return os.time({year=y, month=m, day=d, hour=23, min=59, sec=59}) 
+        return os.time({year=tonumber(y), month=tonumber(m), day=tonumber(d), hour=23, min=59, sec=59}) 
     end)
     
     if not success then return false, "ERROR FORMAT TANGGAL" end
